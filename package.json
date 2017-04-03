@@ -29,5 +29,9 @@
   "bugs": {
     "url": "https://github.com/brisourceful/dinner-and-a-movie/issues"
   },
-  "homepage": "https://github.com/brisourceful/dinner-and-a-movie#readme"
+  "homepage": "https://github.com/brisourceful/dinner-and-a-movie#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "pg": "^6.1.5"
+  }
 }
