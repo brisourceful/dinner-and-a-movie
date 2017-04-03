@@ -4,6 +4,7 @@
   <title></title>
   <!-- TODO: add any links to CSS files -->
   <link rel="stylesheet" href="styles/icon.css">
+  <link rel="stylesheet" href="styles/map.css">
   <!-- TODO: add template scripts for about page -->
 </head>
 <body>
@@ -14,13 +15,15 @@
     </nav>
   </div>
   <div id="map">
-    <iframe src="//www.google.com/maps/embed/v1/place?q=Harrods,Brompton%20Rd,%20UK
-      &zoom=17
-      &key=YOUR_API_KEY">
-    </iframe>
+
   </div>
   <!-- TODO: link vendor scripts, Jquery -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATqY1lXDl3ffLAeNnGsfZXv1LZh7XfbK0&callback=initMap"
+  async defer></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="scripts/models/map.js"></script>
+  <script>
+    initMap();
+  </script>
   <!-- TODO: link any and all script tags here -->
 </body>
