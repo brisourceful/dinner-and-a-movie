@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="styles/icon.css">
   <link rel="stylesheet" href="styles/map.css">
   <!-- TODO: add template scripts for about page -->
+
   <script id="bio-template" type="text/x-handlebars-template">
     <div>
       <img src="{{image}}">
@@ -14,6 +15,7 @@
       <section class="bio-body">{{{bio}}}</section>
     </div>
   </script>
+
 </head>
 <body>
   <div class="tab" id="title-area">
@@ -32,18 +34,18 @@
 
   </div>
   <!-- TODO: link vendor scripts, Jquery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATqY1lXDl3ffLAeNnGsfZXv1LZh7XfbK0&callback=initMap"
-  async defer></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="scripts/models/map.js"></script>
-  <script>
-    initMap();
-  </script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATqY1lXDl3ffLAeNnGsfZXv1LZh7XfbK0&callback=initMap&libraries=places"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
 
-  <script src="script/controllers/searchController.js"></script>
-  <script src="script/controllers/mapController.js"></script>
-  <script src="script/controllers/aboutController.js"></script>
-  <script src="script/controllers/routes.js"></script>
+  <script src="scripts/models/bio.js"></script>
+
+
+  <script src="scripts/controllers/searchController.js"></script>
+  <script src="scripts/controllers/mapController.js"></script>
+  <script src="scripts/controllers/aboutController.js"></script>
+
+  <!-- <script src="scripts/controllers/routes.js"></script> -->
   <!-- TODO: link any and all script tags here -->
 </body>
