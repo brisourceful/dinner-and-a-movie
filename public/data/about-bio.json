@@ -1,0 +1,25 @@
+[{
+  "name": "Enrique Rico",
+  "image": "/image/url",
+  "github": "https://github.com/EnriqueRico",
+  "bio": "blah blah blah"
+  },
+{
+  "name": "Lindsay Gilbert",
+  "image": "/image/url",
+  "github": "https://github.com/lindsgil",
+  "bio": "blah blah blah"
+
+  },
+{
+  "name": "Brianna Burrows",
+  "image": "/image/url",
+  "github": "https://github.com/url",
+  "bio": "blah blah blah"
+  },
+  {
+  "name": "Logan Absher",
+  "image": "/image/url",
+  "github": "https://github.com/url",
+  "bio": "blah blah blah"
+}]
