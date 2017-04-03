@@ -1,0 +1,33 @@
+{
+  "name": "dinner-and-a-movie",
+  "version": "1.0.0",
+  "description": "This is a product that allows users to find a place to watch a movie in theaters and find restaurants within a certain proximity of the theater.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brisourceful/dinner-and-a-movie.git"
+  },
+  "keywords": [
+    "dinner",
+    "movie",
+    "project",
+    "Logan",
+    "Absher",
+    "Enrique",
+    "Rico",
+    "Brianna",
+    "Burrows",
+    "Lindsay",
+    "Gilbert"
+  ],
+  "author": "Logan Absher, Enrique Rico, Brianna Burrows, Lindsay Gilbert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brisourceful/dinner-and-a-movie/issues"
+  },
+  "homepage": "https://github.com/brisourceful/dinner-and-a-movie#readme"
+}
