@@ -6,6 +6,14 @@
   <link rel="stylesheet" href="styles/icon.css">
   <link rel="stylesheet" href="styles/map.css">
   <!-- TODO: add template scripts for about page -->
+  <script id="bio-template" type="text/x-handlebars-template">
+    <div>
+      <img src="{{image}}">
+      <h4>{{name}}</h4>
+      <address><a href="{{github}}">GitHub Repo</a></address>
+      <section class="bio-body">{{{bio}}}</section>
+    </div>
+  </script>
 </head>
 <body>
   <div class="tab" id="title-area">
@@ -24,6 +32,7 @@
 
   </div>
   <!-- TODO: link vendor scripts, Jquery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATqY1lXDl3ffLAeNnGsfZXv1LZh7XfbK0&callback=initMap"
   async defer></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
