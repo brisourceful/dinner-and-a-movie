@@ -32,6 +32,7 @@
   "homepage": "https://github.com/brisourceful/dinner-and-a-movie#readme",
   "dependencies": {
     "express": "^4.15.2",
+    "page": "^1.7.1",
     "pg": "^6.1.5"
   }
 }
