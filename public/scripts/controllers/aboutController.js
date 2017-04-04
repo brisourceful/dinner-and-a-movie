@@ -2,6 +2,6 @@
   const aboutController = {};
   aboutController.showAbout = function(){
     $('.tab').hide();
-    $('#about').fadeIn('slow');
+    $('.about').fadeIn('slow');
   }
 })(window);

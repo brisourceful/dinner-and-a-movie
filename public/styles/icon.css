@@ -23,3 +23,18 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.icon-list2:before {
+  content: "\e9bb";
+}
+.icon-home:before {
+  content: "\e900";
+}
+.icon-github:before {
+  content: "\eab0";
+}
+.icon-location2:before {
+  content: "\e948";
+}
+.icon-info:before {
+  content: "\ea0c";
+}
