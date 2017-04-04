@@ -1,5 +1,5 @@
 'use strict';
 page('/', searchController.showSearch);
-page('/find', findController.showFinder);
+page('/map', mapController.showMap);
 page('/about', aboutController.showAbout);
 page();

@@ -5,32 +5,41 @@
   <!-- TODO: add any links to CSS files -->
   <link rel="stylesheet" href="styles/icon.css">
   <link rel="stylesheet" href="styles/map.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/base.css">
   <!-- TODO: add template scripts for about page -->
 
   <script id="bio-template" type="text/x-handlebars-template">
     <div>
       <img src="{{image}}">
       <h4>{{name}}</h4>
-      <address><a href="{{github}}">GitHub Repo</a></address>
+      <address><a href="{{github}}"><span class="icon-github">GitHub Repo</span></a></address>
       <section class="bio-body">{{{bio}}}</section>
     </div>
   </script>
 
 </head>
 <body>
-  <div class="tab" id="title-area">
-    <h1>Dinner and a Movie</h1>
-    <nav>
-
-    </nav>
+  <div id="title-area">
+    <ul>
+      <li><h1>Dinner and a Movie</h1></li>
+      <li><span class="icon-list2"></span></li>
+    </ul>
   </div>
-  <div class="tab" id="search">
+  <nav id="navigation">
+    <ul>
+      <li><a href="/"><span class="icon-home"></span></a></li>
+      <li><a href="/map"><span class="icon-location2"></span></a></li>
+      <li><a href="/about"><span class="icon-info"></span></a></li>
+    </ul>
+  </nav>
+  <div class="tab" class="search">
 
   </div>
-  <div class="tab" id="map">
+  <div class="tab" class="map">
 
   </div>
-  <div class="tab" id="about">
+  <div class="tab" class="about">
 
   </div>
   <!-- TODO: link vendor scripts, Jquery -->
@@ -48,4 +57,5 @@
 
   <!-- <script src="scripts/controllers/routes.js"></script> -->
   <!-- TODO: link any and all script tags here -->
+  <script src="scripts/controllers/routes.js"></script>
 </body>

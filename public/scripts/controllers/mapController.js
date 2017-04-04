@@ -2,6 +2,6 @@
   const mapController = {};
   mapController.showMap = function(){
     $('.tab').hide();
-    $('#map').fadeIn('slow');
+    $('.map').fadeIn('slow');
   }
 })(window);
