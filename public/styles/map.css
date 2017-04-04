@@ -1,4 +1,4 @@
-#map {
+#map{
   height: 100%;
 }
 
@@ -9,17 +9,17 @@ html, body {
 }
 
 #description {
- font-family: Roboto;
- font-size: 15px;
- font-weight: 300;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
 }
 
 #infowindow-content .title {
- font-weight: bold;
+  font-weight: bold;
 }
 
- #infowindow-content {
- display: none;
+#infowindow-content {
+  display: none;
 }
 
  #map #infowindow-content {
@@ -37,9 +37,9 @@ html, body {
  font-family: Roboto;
 }
 
- #pac-container {
-   padding-bottom: 12px;
-   margin-right: 12px;
+#pac-container {
+ padding-bottom: 12px;
+ margin-right: 12px;
 }
 
 .pac-controls {
