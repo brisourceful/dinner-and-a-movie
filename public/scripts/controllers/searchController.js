@@ -2,7 +2,8 @@
 (function(module){
   const searchController = {};
   searchController.showSearch = function(){
-    $('.tab').hide();
+    $('#about').hide();
+    $('#map').hide();
     $('#search-icon').hide();
     $('#about-icon').show();
     $('#map-icon').show();

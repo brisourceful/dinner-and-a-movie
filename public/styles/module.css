@@ -1,6 +1,38 @@
-/*#navigation ul li{
+#navigation{
   display: none;
 }
-#title-area span:hover #navigation ul li{
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+#navigation ul li{
+  background-color: #EDAF14;
+  animation-duration: .5s;
+  animation-name: bounceIn;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  font-size: 1.4em;
+  padding-left: 1.2em;
+  padding-right: 1.2em;
+  padding-top: .4em;
+  padding-bottom: .4em;
+}
+#navigation ul li a{
+  color: black;
+}
+#navigation ul{
+  margin: 0px;
+  padding: 0px;
+}
+.icon-list2:hover ~ #navigation{
   display: block;
-}*/
+}
+#navigation:hover{
+  display: block;
+}

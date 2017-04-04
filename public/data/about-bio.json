@@ -1,25 +1,25 @@
 [{
   "name": "Enrique Rico",
-  "image": "/image/url",
+  "image": "/images/enrique.png",
   "github": "https://github.com/EnriqueRico",
   "bio": "blah blah blah"
   },
 {
   "name": "Lindsay Gilbert",
-  "image": "/image/url",
+  "image": "/images/linds.png",
   "github": "https://github.com/lindsgil",
   "bio": "blah blah blah"
 
   },
 {
   "name": "Brianna Burrows",
-  "image": "/image/url",
+  "image": "/images/bri.png",
   "github": "https://github.com/url",
   "bio": "blah blah blah"
   },
   {
   "name": "Logan Absher",
-  "image": "/image/url",
+  "image": "/images/logan.png",
   "github": "https://github.com/url",
   "bio": "blah blah blah"
 }]
