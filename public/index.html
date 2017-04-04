@@ -2,15 +2,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-  <title></title>
+  <title>Dinner and a Movie</title>
   <!-- TODO: add any links to CSS files -->
   <link rel="stylesheet" href="styles/icon.css">
   <link rel="stylesheet" href="styles/map.css">
   <link rel="stylesheet" href="styles/layout.css">
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/module.css">
-  <!-- TODO: add template scripts for about page -->
-
   <script id="bio-template" type="text/x-handlebars-template">
     <div>
       <img src="{{image}}">
@@ -19,25 +17,24 @@
       <section class="bio-body">{{{bio}}}</section>
     </div>
   </script>
-
 </head>
 <body>
   <div id="title-area">
     <h1>Dinner and a Movie</h1>
-    <span class="icon-list2"></span>
   </div>
+  <span class="icon-list2"></span>
   <nav id="navigation">
     <ul>
-      <li><a href="/"><span class="icon-home" id="search-icon"></span></a></li>
-      <li><a href="/map"><span class="icon-location2" id="map-icon"></span></a></li>
-      <li><a href="/about"><span class="icon-info" id="about-icon"></span></a></li>
+      <li><a href="/"><span class="icon-home" id="search-icon">Home</span></a></li>
+      <li><a href="/map"><span class="icon-location2" id="map-icon">Map</span></a></li>
+      <li><a href="/about"><span class="icon-info" id="about-icon">About</span></a></li>
     </ul>
   </nav>
   <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-  <div class="tab"id="map"></div>
-  <div class="tab" id="about"></div>
+  <div id="search"></div>
+  <div id="map"></div>
+  <div id="about"></div>
 
-  <!-- TODO: link vendor scripts, Jquery -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATqY1lXDl3ffLAeNnGsfZXv1LZh7XfbK0&libraries=places&callback=initAutocomplete" async defer></script>
   <script src="scripts/models/map.js"></script>
 
@@ -51,7 +48,5 @@
   <script src="scripts/controllers/mapController.js"></script>
   <script src="scripts/controllers/aboutController.js"></script>
 
-  <!-- <script src="scripts/controllers/routes.js"></script> -->
-  <!-- TODO: link any and all script tags here -->
   <script src="scripts/controllers/routes.js"></script>
 </body>

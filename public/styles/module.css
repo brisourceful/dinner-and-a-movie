@@ -1,6 +1,9 @@
-/*#navigation ul li{
+#navigation{
   display: none;
 }
-#title-area span:hover #navigation ul li{
+.icon-list2:hover ~ #navigation{
   display: block;
-}*/
+}
+#navigation:hover{
+  display: block;
+}
