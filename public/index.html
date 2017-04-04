@@ -1,6 +1,7 @@
 <!DOCTYPE  html>
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <title></title>
   <!-- TODO: add any links to CSS files -->
   <link rel="stylesheet" href="styles/icon.css">
@@ -32,23 +33,19 @@
       <li><a href="/about"><span class="icon-info" id="about-icon"></span></a></li>
     </ul>
   </nav>
-  <div class="tab" id="search">
+  <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+  <div class="tab"id="map"></div>
+  <div class="tab" id="about"></div>
 
-  </div>
-  <div class="tab" id="map">
-
-  </div>
-  <div class="tab" id="about">
-
-  </div>
   <!-- TODO: link vendor scripts, Jquery -->
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATqY1lXDl3ffLAeNnGsfZXv1LZh7XfbK0&callback=initMap&libraries=places"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATqY1lXDl3ffLAeNnGsfZXv1LZh7XfbK0&libraries=places&callback=initAutocomplete" async defer></script>
+  <script src="scripts/models/map.js"></script>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
   <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
 
   <script src="scripts/models/bio.js"></script>
-  <script src="scripts/models/map.js"></script>
 
   <script src="scripts/controllers/searchController.js"></script>
   <script src="scripts/controllers/mapController.js"></script>
