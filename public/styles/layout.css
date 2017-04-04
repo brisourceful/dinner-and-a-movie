@@ -1,3 +1,11 @@
 #title-area ul li{
   display: inline;
 }
+#navigation{
+  float: right;
+}
+#navigation ul li{
+  display: inline;
+  padding-right: 20px; 
+  font-size: 1.4em;
+}
