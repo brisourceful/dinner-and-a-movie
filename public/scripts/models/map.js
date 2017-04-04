@@ -1,5 +1,7 @@
 'use strict';
 
+var movie;
+
 function initAutocomplete() {
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 47.6205, lng: -122.3493},
@@ -12,20 +14,71 @@ function initAutocomplete() {
   var searchBox = new google.maps.places.SearchBox(input);
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-  // Bias the SearchBox results towards current map's viewport.
-  map.addListener('bounds_changed', function() {
-    searchBox.setBounds(map.getBounds());
-  });
+
+              function codeAddress() {
+                var address = document.getElementById('address').value;
+                geocoder.geocode( { 'address': address}, function(results, status) {
+                  if (status == 'OK') {
+                    map.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                  } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                  }
+                });
+              }
+
+              // Bias the SearchBox results towards current map's viewport.
+              map.addListener('bounds_changed', function() {
+                searchBox.setBounds(map.getBounds());
+              });
 
   var markers = [];
   // Listen for the event fired when the user selects a prediction and retrieve
   // more details for that place.
   searchBox.addListener('places_changed', function() {
     var places = searchBox.getPlaces();
+    var address = input.value;
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode( {'address': address}, function(results, status) {
+      if (status == 'OK') {
+        var lat = results[0].geometry.location.lat();
+        var long = results[0].geometry.location.lng();
+        console.log(lat, long);
+        $.ajax({
+          type: "GET",
+          url: "https://maps.googleapis.com/maps/api/place/radarsearch/json?location=" + lat + "," + long + "&radius=5000&type=movie_theater&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
+          dataType: "json",
+          success: function(response) {
+            for (var i=0; i < response.results.length; i++) {
+              createMarker(response.results[i]);
+            }
+            console.log(response);
+            movie=response;
+          }
+        });
+      }
+    })
+
+    function createMarker(place){
+      var placeLoc = place.geometry.location;
+      var marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
+      });
+
+      google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent(place.name);
+        infowindow.open (map, this);
+      });
+    };
 
     if (places.length == 0) {
       return;
     }
+
 
     // Clear out the old markers.
     markers.forEach(function(marker) {
