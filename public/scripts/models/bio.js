@@ -11,14 +11,15 @@ Bio.all = [];
 
 const bioView = {};
 
-Bio.prototype.toHtml = function() {
-  let template = Handlebars.compile($('#bio-template').text());
-
-  return template(this);
+Bio.toHtml = function() {
+  let template = Handlebars.compile($('#bio-template').html());
+  Bio.all.forEach(function(ele){
+    console.log(ele);
+    $('#about').append(template(ele));
+  })
 };
 
 Bio.loadAll = function(rawData) {
-
   rawData.forEach(function(ele) {
     Bio.all.push(new Bio(ele));
   })
@@ -28,14 +29,13 @@ Bio.loadAll = function(rawData) {
 Bio.fetchAll = function() {
   if (localStorage.rawData) {
       Bio.loadAll(JSON.parse(localStorage.rawData));
-    bioView.initIndexPage();
+    Bio.toHtml();
   } else {
     $.getJSON('/data/about-bio.json')
     .then(function(data) {
-      console.log(data);
       localStorage.rawData = JSON.stringify(data);
       Bio.loadAll(data);
-      bioView.initIndexPage();
+      Bio.toHtml();
     }, function(err){
       console.error(err);
     }
@@ -43,8 +43,4 @@ Bio.fetchAll = function() {
   }
 }
 
-bioView.initIndexPage = function() {
-  Bio.all.forEach(function(a) {
-    $('#about').append(a.toHtml())
-  })
-};
+Bio.fetchAll();
