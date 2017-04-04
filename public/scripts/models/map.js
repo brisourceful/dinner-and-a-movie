@@ -5,7 +5,7 @@ var movie;
 function initAutocomplete() {
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 47.6205, lng: -122.3493},
-    zoom: 15,
+    zoom: 12,
     mapTypeId: 'roadmap'
   });
 
