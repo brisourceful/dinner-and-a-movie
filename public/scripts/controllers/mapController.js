@@ -1,7 +1,8 @@
 (function(module){
   const mapController = {};
   mapController.showMap = function(){
-    $('.tab').hide();
+    $('#about').hide();
+    $('#search').hide();
     $('#map-icon').hide();
     $('#about-icon').show();
     $('#search-icon').show();

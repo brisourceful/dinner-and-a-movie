@@ -1,7 +1,8 @@
 (function(module){
   const aboutController = {};
   aboutController.showAbout = function(){
-    $('.tab').hide();
+    $('#map').hide();
+    $('#search').hide();
     $('#about-icon').hide();
     $('#map-icon').show();
     $('#search-icon').show();

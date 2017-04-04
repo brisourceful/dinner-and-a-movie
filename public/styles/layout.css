@@ -1,19 +1,23 @@
 #navigation{
   float: right;
-  padding-right: 20px;
 }
 #navigation ul li{
-  display: inline;
+  list-style: none;
   font-size: 1.4em;
+}
+#title-area{
+  border-bottom: 2px solid black; 
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 .icon-list2{
   font-size: 2.5em;
   padding-bottom: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
   position: absolute;
-  top: 25px;
+  top: 40px;
   right: 1%;
-  padding-right: 20px;
-  font-size: 1.4em;
 }
 #bio-about{
   display: inline-block;
