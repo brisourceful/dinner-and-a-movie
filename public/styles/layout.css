@@ -12,4 +12,16 @@
   position: absolute;
   top: 25px;
   right: 1%;
+  padding-right: 20px;
+  font-size: 1.4em;
+}
+#bio-about{
+  display: inline-block;
+  width: 40%;
+}
+#bio-about img{
+  width:40%;
+}
+#bio-about h4{
+
 }
