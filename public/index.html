@@ -3,18 +3,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <title>Dinner and a Movie</title>
-  <!-- TODO: add any links to CSS files -->
   <link rel="stylesheet" href="styles/icon.css">
   <link rel="stylesheet" href="styles/map.css">
   <link rel="stylesheet" href="styles/layout.css">
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/module.css">
   <script id="bio-template" type="text/x-handlebars-template">
-    <div id="bio-about">
+    <div class="bio-about">
       <img src="{{image}}">
       <h4>{{name}}</h4>
       <address><a href="{{github}}"><span class="icon-github">GitHub</span></a></address>
-      <section class="bio-body">{{{bio}}}</section>
+      <section class="bio-body"><p>{{bio}}</p></section>
     </div>
   </script>
 </head>
@@ -35,7 +34,7 @@
   <div id="search"></div>
   <div id="map"></div>
   <div id="about"></div>
-
+  <p>&copy; Dinner and a Movie 2017</p>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATqY1lXDl3ffLAeNnGsfZXv1LZh7XfbK0&libraries=places&callback=initAutocomplete" async defer></script>
   <script src="scripts/models/map.js"></script>
 
@@ -50,6 +49,4 @@
   <script src="scripts/controllers/aboutController.js"></script>
 
   <script src="scripts/controllers/routes.js"></script>
-  <!-- TODO: link any and all script tags here -->
-
 </body>

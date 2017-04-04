@@ -6,7 +6,7 @@
   font-size: 1.4em;
 }
 #title-area{
-  border-bottom: 2px solid black; 
+  border-bottom: 2px solid black;
   padding-top: 1em;
   padding-bottom: 1em;
 }
@@ -19,13 +19,21 @@
   top: 40px;
   right: 1%;
 }
-#bio-about{
+.bio-about{
+  float: left;
+  clear: both;
   display: inline-block;
-  width: 40%;
+  padding-top: 20px;
+  padding-left: 40px;
+  width: 100%;
 }
-#bio-about img{
-  width:40%;
+.bio-about img{
+  width:25%;
+  float: left;
+  padding-right: 10px;
+  padding-left: 10px;
+  /*border: 8px solid black;*/
 }
-#bio-about h4{
-
+.bio-about h4{
+  font-size: 2em;
 }

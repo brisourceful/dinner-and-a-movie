@@ -14,7 +14,6 @@ const bioView = {};
 Bio.toHtml = function() {
   let template = Handlebars.compile($('#bio-template').html());
   Bio.all.forEach(function(ele){
-    console.log(ele);
     $('#about').append(template(ele));
   })
 };
