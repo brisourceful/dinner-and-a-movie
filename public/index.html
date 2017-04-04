@@ -12,10 +12,10 @@
   <!-- TODO: add template scripts for about page -->
 
   <script id="bio-template" type="text/x-handlebars-template">
-    <div>
+    <div id="bio-about">
       <img src="{{image}}">
       <h4>{{name}}</h4>
-      <address><a href="{{github}}"><span class="icon-github">GitHub Repo</span></a></address>
+      <address><a href="{{github}}"><span class="icon-github">GitHub</span></a></address>
       <section class="bio-body">{{{bio}}}</section>
     </div>
   </script>
@@ -34,7 +34,8 @@
     </ul>
   </nav>
   <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-  <div class="tab"id="map"></div>
+  <div class="tat" id="search"></div>
+  <div class="tab" id="map"></div>
   <div class="tab" id="about"></div>
 
   <!-- TODO: link vendor scripts, Jquery -->
@@ -51,7 +52,7 @@
   <script src="scripts/controllers/mapController.js"></script>
   <script src="scripts/controllers/aboutController.js"></script>
 
-  <!-- <script src="scripts/controllers/routes.js"></script> -->
-  <!-- TODO: link any and all script tags here -->
   <script src="scripts/controllers/routes.js"></script>
+  <!-- TODO: link any and all script tags here -->
+
 </body>
