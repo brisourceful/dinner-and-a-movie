@@ -62,7 +62,7 @@ function initAutocomplete() {
       }
     })
 
-    let imageFood = 'http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/128/Restaurant-icon.png';
+    let imageFood = 'https://photos-2.dropbox.com/t/2/AAB48PDFVUeeDtoVZea6lLqoKVK3AC0oRxiTWug5gZp8tg/12/553914201/png/32x32/1/_/1/2/cutlery-copy.png/EM2a87cEGJtSIAIoAg/Sh3nriTH92P23s-_gKPTzqKoJShvIZHB3xAg8tSXceU?size=2048x1536&size_mode=3';
     function createMarkerFood(place){
       let placeLoc = place.geometry.location;
       let marker = new google.maps.Marker({
@@ -73,7 +73,7 @@ function initAutocomplete() {
       });
     }
 
-    let image = 'http://icons.iconarchive.com/icons/hadezign/hobbies/128/Movies-icon.png';
+    let image = 'https://photos-1.dropbox.com/t/2/AACXwh9f4C1jpCp0DMUx-tJ4T-XTXZHNKWBKeZezhxdVRg/12/553914201/png/32x32/1/_/1/2/photograms-copy.png/EM2a87cEGJlSIAIoAg/I7wCvq1HmYLFSBVeDEY740ELmPS9eljh4HbGF8r2zCg?size=2048x1536&size_mode=3';
     function createMarkerMovie(place){
       let placeLoc = place.geometry.location;
       let marker = new google.maps.Marker({
