@@ -1,6 +1,8 @@
 'use strict';
 
 var movie;
+let markers = [];
+let foodMarkers = [];
 
 function initAutocomplete() {
   let map = new google.maps.Map(document.getElementById('map'), {
@@ -15,30 +17,33 @@ function initAutocomplete() {
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
 
-              function codeAddress() {
-                let address = document.getElementById('address').value;
-                geocoder.geocode( { 'address': address}, function(results, status) {
-                  if (status == 'OK') {
-                    map.setCenter(results[0].geometry.location);
-                    let marker = new google.maps.Marker({
-                        map: map,
-                        position: results[0].geometry.location
-                    });
-                  } else {
-                    alert('Geocode was not successful for the following reason: ' + status);
-                  }
-                });
-              }
+  // function codeAddress() {
+  //
+  //   if(markers.length > 0){
+  //     deleteMarkers();
+  //   }
+  //   let address = document.getElementById('address').value;
+  //   geocoder.geocode( { 'address': address}, function(results, status) {
+  //     if (status == 'OK') {
+  //       map.setCenter(results[0].geometry.location);
+  //       let marker = new google.maps.Marker({
+  //           map: map,
+  //           position: results[0].geometry.location
+  //       });
+  //     } else {
+  //       alert('Geocode was not successful for the following reason: ' + status);
+  //     }
+  //   });
+  // }
 
-              // Bias the SearchBox results towards current map's viewport.
-              map.addListener('bounds_changed', function() {
-                searchBox.setBounds(map.getBounds());
-              });
-
-  let markers = [];
+  // Bias the SearchBox results towards current map's viewport.
+  map.addListener('bounds_changed', function() {
+    searchBox.setBounds(map.getBounds());
+  });
   // Listen for the event fired when the user selects a prediction and retrieve
   // more details for that place.
   searchBox.addListener('places_changed', function() {
+    // deleteMarkers();
     let places = searchBox.getPlaces();
     let address = input.value;
     let geocoder = new google.maps.Geocoder();
@@ -52,7 +57,11 @@ function initAutocomplete() {
           url: "https://maps.googleapis.com/maps/api/place/radarsearch/json?location=" + lat + "," + long + "&radius=5000&type=movie_theater&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
           dataType: "json",
           success: function(response) {
+            // if(markers.length > 0){
+            //   markers[i].setMap(null)
+            // }
             for (var i=0; i < response.results.length; i++) {
+              markers.push(response.results[i]);
               createMarkerMovie(response.results[i]);
             }
             console.log(response);
@@ -101,17 +110,6 @@ function initAutocomplete() {
         // animation: google.maps.Animation.DROP,
       });
 
-
-      // marker.addListener('click', toggleBounce)
-      //
-      // function toggleBounce() {
-      //   if (marker.getAnimation() !== null) {
-      //     marker.setAnimation(null);
-      //   } else {
-      //     marker.setAnimation(google.maps.Animation.BOUNCE);
-      //   }
-      // }
-
       google.maps.event.addListener(marker, 'click', function() {
         console.log(place);
         $.ajax({
@@ -134,8 +132,13 @@ function initAutocomplete() {
          url: "https://maps.googleapis.com/maps/api/place/radarsearch/json?location=" + place.geometry.location.lat + "," + place.geometry.location.lng + "&radius=804&type=restaurant&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
          dataType: "json",
          success: function(response) {
+          //  if(foodMarkers.length > 0){
+          //    foodMarkers.forEach(function(marker) {
+          //      marker.geometry.setMap(null);
+          //    });
+          //  }
            for (var i=0; i < response.results.length; i++) {
-             markers.push(response.results[i]);
+             foodMarkers.push(response.results[i]);
              createMarkerFood(response.results[i]);
            }
            console.log(response);
@@ -150,13 +153,6 @@ function initAutocomplete() {
     if (places.length == 0) {
       return;
     }
-
-
-    // Clear out the old markers.
-    markers.forEach(function(marker) {
-      marker.setMap(null);
-    });
-    // markers = [];
 
     // For each place, get the icon, name and location.
     let bounds = new google.maps.LatLngBounds();
@@ -191,4 +187,16 @@ function initAutocomplete() {
     });
     map.fitBounds(bounds);
   });
+}
+function setMapOnAll(map) {
+  markers.forEach(function(marker){
+    marker.geometry.setMap(map);
+  });
+}
+function deleteMarkers() {
+  clearMarkers();
+  markers = [];
+}
+function clearMarkers() {
+  setMapOnAll(null);
 }
