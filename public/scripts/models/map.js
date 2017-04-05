@@ -69,22 +69,43 @@ function initAutocomplete() {
         position: place.geometry.location
       });
 
+
       google.maps.event.addListener(marker, 'click', function() {
+        console.log(place);
+        var placeInfo = place.place_id;
         var theaterLat = place.geometry.location.lat;
         var theaterLng = place.geometry.location.lng;
+
         $.ajax({
           type: "GET",
-          url: "https://maps.googleapis.com/maps/api/place/radarsearch/json?location=" + theaterLat + "," + theaterLng + "&radius=1000&type=resturant&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
+          url: "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + placeInfo + "&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
           dataType: "json",
           success: function(response) {
-            for (var i=0; i < response.results.length; i++) {
-              createMarker(response.results[i]);
-            }
             console.log(response);
+            
+             var contentString = `<div class="tooltip"> <h4>${response.result.name}</h4>  <p>${response.result.formatted_address}</p></div>`;
+
+            var infowindow = new google.maps.InfoWindow({
+              content: contentString
+            });
+            infowindow.open(map, marker);
           }
         });
+        $.ajax({
+         type: "GET",
+         url: "https://maps.googleapis.com/maps/api/place/radarsearch/json?location=" + theaterLat + "," + theaterLng + "&radius=804&type=restaurant&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
+         dataType: "json",
+         success: function(response) {
+           for (var i=0; i < response.results.length; i++) {
+             createMarker(response.results[i]);
+           }
+           console.log(response);
+         }
+       });
+
       });
     };
+
 
     if (places.length == 0) {
       return;
