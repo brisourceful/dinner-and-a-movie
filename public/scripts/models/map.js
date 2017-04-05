@@ -119,9 +119,3 @@ function initAutocomplete() {
     map.fitBounds(bounds);
   });
 }
-
-
-
-// $.ajax('AIzaSyATqY1lXDl3ffLAeNnGsfZXv1LZh7XfbK0', function(data){
-//   console.log(data);
-// });
