@@ -53,7 +53,7 @@ function initAutocomplete() {
           dataType: "json",
           success: function(response) {
             for (var i=0; i < response.results.length; i++) {
-              createMarker(response.results[i]);
+              createMarkerMovie(response.results[i]);
             }
             console.log(response);
             movie=response;
@@ -62,13 +62,37 @@ function initAutocomplete() {
       }
     })
 
-    function createMarker(place){
+    var imageFood = 'http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/128/Restaurant-icon.png';
+    function createMarkerFood(place){
       var placeLoc = place.geometry.location;
       var marker = new google.maps.Marker({
+        position: place.geometry.location,
         map: map,
-        position: place.geometry.location
+        icon: imageFood
+        // animation: google.maps.Animation.DROP,
+      });
+    }
+
+    var image = 'http://icons.iconarchive.com/icons/hadezign/hobbies/128/Movies-icon.png';
+    function createMarkerMovie(place){
+      var placeLoc = place.geometry.location;
+      var marker = new google.maps.Marker({
+        position: place.geometry.location,
+        map: map,
+        icon: image
+        // animation: google.maps.Animation.DROP,
       });
 
+
+      // marker.addListener('click', toggleBounce)
+      //
+      // function toggleBounce() {
+      //   if (marker.getAnimation() !== null) {
+      //     marker.setAnimation(null);
+      //   } else {
+      //     marker.setAnimation(google.maps.Animation.BOUNCE);
+      //   }
+      // }
 
       google.maps.event.addListener(marker, 'click', function() {
         console.log(place);
@@ -82,7 +106,7 @@ function initAutocomplete() {
           dataType: "json",
           success: function(response) {
             console.log(response);
-            
+
              var contentString = `<div class="tooltip"> <h4>${response.result.name}</h4>  <p>${response.result.formatted_address}</p></div>`;
 
             var infowindow = new google.maps.InfoWindow({
@@ -97,7 +121,7 @@ function initAutocomplete() {
          dataType: "json",
          success: function(response) {
            for (var i=0; i < response.results.length; i++) {
-             createMarker(response.results[i]);
+             createMarkerFood(response.results[i]);
            }
            console.log(response);
          }
@@ -105,6 +129,7 @@ function initAutocomplete() {
 
       });
     };
+
 
 
     if (places.length == 0) {
@@ -134,6 +159,7 @@ function initAutocomplete() {
       };
 
       // Create a marker for each place.
+
       markers.push(new google.maps.Marker({
         map: map,
         icon: icon,
@@ -151,8 +177,3 @@ function initAutocomplete() {
     map.fitBounds(bounds);
   });
 }
-
-
-// $.ajax('AIzaSyATqY1lXDl3ffLAeNnGsfZXv1LZh7XfbK0', function(data){
-//   console.log(data);
-// });
