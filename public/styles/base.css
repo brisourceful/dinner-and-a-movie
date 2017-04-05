@@ -1,3 +1,86 @@
+*{
+  font-family: 'Overlock', cursive;
+  /*font-family: 'Open Sans Condensed', sans-serif;*/
+  /*font-family: 'Rancho', cursive;*/
+}
+
+/*------------------------------*/
 #title-area{
   background-color: #EDAF14;
+}
+#title-area h1{
+  font-family: 'Merienda', cursive;
+  font-size: 1.8em;
+}
+
+/*------------------------------*/
+#navigation ul li{
+  font-size: 1.4em;
+}
+.icon-list2{
+  font-size: 1.4em;
+}
+
+/*------------------------------*/
+.bio-about h4{
+  font-size: 1.4em;
+}
+
+/*------------------------------*/
+#copyright{
+  font-family: 'Inconsolata', monospace;
+}
+
+
+
+@media only screen and (min-width: 400px) and (max-width: 549px){
+  #title-area{
+    font-size: 2em;
+  }
+  #title-area h1{
+    font-size: 1em;
+  }
+
+  /*------------------------------*/
+  .icon-list2{
+    font-size: 1.8em;
+  }
+
+  /*------------------------------*/
+  .bio-about h4{
+    font-size: 2em;
+  }
+}
+
+
+
+@media only screen and (min-width: 550px) and (max-width: 719px){
+  #title-area{
+    font-size: 1.6em;
+  }
+
+  /*------------------------------*/
+  .icon-list2{
+    font-size: 2.4em;
+  }
+
+  .bio-about h4{
+    font-size: 2.8em;
+  }
+}
+
+
+@media only screen and (min-width: 720px){
+  #title-area{
+    font-size: 2.4em;
+  }
+
+  /*------------------------------*/
+  .icon-list2{
+    font-size: 3.4em;
+  }
+
+  .bio-about h4{
+    font-size: 3.4em;
+  }
 }

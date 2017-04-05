@@ -2,10 +2,10 @@
   const mapController = {};
   mapController.showMap = function(){
     $('#about').hide();
-    $('#search').hide();
+    $('#home').hide();
     $('#map-icon').hide();
     $('#about-icon').show();
-    $('#search-icon').show();
+    $('#home-icon').show();
     $('#map').fadeIn('slow');
   }
   module.mapController = mapController;

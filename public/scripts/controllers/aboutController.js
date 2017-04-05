@@ -2,10 +2,10 @@
   const aboutController = {};
   aboutController.showAbout = function(){
     $('#map').hide();
-    $('#search').hide();
+    $('#home').hide();
     $('#about-icon').hide();
     $('#map-icon').show();
-    $('#search-icon').show();
+    $('#home-icon').show();
     $('#about').fadeIn('slow');
   }
   module.aboutController = aboutController;

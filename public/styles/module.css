@@ -1,7 +1,7 @@
 #navigation{
   display: none;
 }
-@keyframes bounceIn {
+@keyframes slideIn {
   0% {
     transform: scale(0.1);
     opacity: 0;
@@ -12,8 +12,8 @@
 }
 #navigation ul li{
   background-color: #EDAF14;
-  animation-duration: .5s;
-  animation-name: bounceIn;
+  animation-duration: .2s;
+  animation-name: slideIn;
   border-left: 2px solid black;
   border-right: 2px solid black;
   border-bottom: 2px solid black;

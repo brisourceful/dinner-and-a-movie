@@ -1,39 +1,137 @@
+#title-area{
+  border-bottom: 2px solid black;
+}
+#title-area h1{
+  margin: 0px;
+}
+
+/*------------------------------*/
+#navigation ul li{
+  list-style: none;
+}
 #navigation{
   float: right;
 }
-#navigation ul li{
-  list-style: none;
-  font-size: 1.4em;
-}
-#title-area{
-  border-bottom: 2px solid black;
-  padding-top: 1em;
-  padding-bottom: 1em;
-}
 .icon-list2{
-  font-size: 2.5em;
   padding-bottom: 40px;
-  padding-left: 10px;
-  padding-right: 10px;
   position: absolute;
-  top: 40px;
+  top: 10px;
   right: 1%;
 }
+
+/*------------------------------*/
 .bio-about{
   float: left;
   clear: both;
   display: inline-block;
-  padding-top: 20px;
-  padding-left: 40px;
+  padding-top: 10px;
   width: 100%;
 }
 .bio-about img{
-  width:25%;
+  width: 120px;
   float: left;
   padding-right: 10px;
   padding-left: 10px;
-  /*border: 8px solid black;*/
 }
 .bio-about h4{
-  font-size: 2em;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/*------------------------------*/
+#copyright{
+  float: left;
+}
+
+
+
+@media only screen and (min-width: 400px) and (max-width: 549px){
+  #title-area{
+    padding-top: .2em;
+    padding-bottom: .2em;
+  }
+
+  /*------------------------------*/
+  .icon-list2{
+    padding-bottom: 40px;
+    padding-left: 2px;
+    padding-right: 2px;
+    top: 20px;
+  }
+
+  /*------------------------------*/
+  .bio-about{
+    padding-top: 15px;
+  }
+  .bio-about img{
+    width: 200px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .bio-about h4{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+
+
+@media only screen and (min-width: 550px) and (max-width: 719px){
+  #title-area{
+    padding-top: .6em;
+    padding-bottom: .6em;
+  }
+
+  /*------------------------------*/
+  .icon-list2{
+    padding-bottom: 40px;
+    padding-left: 6px;
+    padding-right: 6px;
+    top: 30px;
+  }
+
+  /*------------------------------*/
+  .bio-about{
+    padding-top: 20px;
+  }
+  .bio-about img{
+    width: 260px;
+    padding-right: 10px;
+    padding-left: 20px;
+  }
+  .bio-about h4{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+
+
+@media only screen and (min-width: 720px){
+  #title-area{
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+
+  /*------------------------------*/
+  .icon-list2{
+    padding-bottom: 80px;
+    padding-left: 20px;
+    padding-right: 10px;
+    top: 60px;
+  }
+
+  /*------------------------------*/
+  .bio-about{
+    padding-top: 25px;
+  }
+  .bio-about img{
+    width: 320px;
+    padding-right: 10px;
+    padding-left: 30px;
+  }
+  .bio-about h4{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 }
