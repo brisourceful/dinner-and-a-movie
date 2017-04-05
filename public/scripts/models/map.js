@@ -70,8 +70,19 @@ function initAutocomplete() {
       });
 
       google.maps.event.addListener(marker, 'click', function() {
-        infowindow.setContent(place.name);
-        infowindow.open (map, this);
+        var theaterLat = place.geometry.location.lat;
+        var theaterLng = place.geometry.location.lng;
+        $.ajax({
+          type: "GET",
+          url: "https://maps.googleapis.com/maps/api/place/radarsearch/json?location=" + theaterLat + "," + theaterLng + "&radius=1000&type=resturant&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
+          dataType: "json",
+          success: function(response) {
+            for (var i=0; i < response.results.length; i++) {
+              createMarker(response.results[i]);
+            }
+            console.log(response);
+          }
+        });
       });
     };
 
@@ -119,7 +130,6 @@ function initAutocomplete() {
     map.fitBounds(bounds);
   });
 }
-
 
 
 // $.ajax('AIzaSyATqY1lXDl3ffLAeNnGsfZXv1LZh7XfbK0', function(data){
