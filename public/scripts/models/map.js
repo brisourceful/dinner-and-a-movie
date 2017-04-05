@@ -71,6 +71,24 @@ function initAutocomplete() {
         icon: imageFood
         // animation: google.maps.Animation.DROP,
       });
+      google.maps.event.addListener(marker, 'click', function() {
+        console.log(place);
+        $.ajax({
+          type: "GET",
+          url: "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place.place_id + "&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
+          dataType: "json",
+          success: function(response) {
+            console.log(response);
+
+             let contentString = `<div class="tooltip"> <h4>${response.result.name}</h4>  <p>${response.result.formatted_address}</p></div>`;
+
+             let infowindow = new google.maps.InfoWindow({
+               content: contentString
+            });
+            infowindow.open(map, marker);
+          }
+        });
+      });
     }
 
     let image = 'http://icons.iconarchive.com/icons/hadezign/hobbies/128/Movies-icon.png';
@@ -117,6 +135,7 @@ function initAutocomplete() {
          dataType: "json",
          success: function(response) {
            for (var i=0; i < response.results.length; i++) {
+             markers.push(response.results[i]);
              createMarkerFood(response.results[i]);
            }
            console.log(response);
@@ -135,11 +154,9 @@ function initAutocomplete() {
 
     // Clear out the old markers.
     markers.forEach(function(marker) {
-      console.log(markers);
-      console.log(marker);
       marker.setMap(null);
     });
-    markers = [];
+    // markers = [];
 
     // For each place, get the icon, name and location.
     let bounds = new google.maps.LatLngBounds();
