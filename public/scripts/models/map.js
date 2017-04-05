@@ -3,24 +3,24 @@
 var movie;
 
 function initAutocomplete() {
-  var map = new google.maps.Map(document.getElementById('map'), {
+  let map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 47.6205, lng: -122.3493},
     zoom: 12,
     mapTypeId: 'roadmap'
   });
 
   // Create the search box and link it to the UI element.
-  var input = document.getElementById('pac-input');
-  var searchBox = new google.maps.places.SearchBox(input);
+  let input = document.getElementById('pac-input');
+  let searchBox = new google.maps.places.SearchBox(input);
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
 
               function codeAddress() {
-                var address = document.getElementById('address').value;
+                let address = document.getElementById('address').value;
                 geocoder.geocode( { 'address': address}, function(results, status) {
                   if (status == 'OK') {
                     map.setCenter(results[0].geometry.location);
-                    var marker = new google.maps.Marker({
+                    let marker = new google.maps.Marker({
                         map: map,
                         position: results[0].geometry.location
                     });
@@ -35,17 +35,17 @@ function initAutocomplete() {
                 searchBox.setBounds(map.getBounds());
               });
 
-  var markers = [];
+  let markers = [];
   // Listen for the event fired when the user selects a prediction and retrieve
   // more details for that place.
   searchBox.addListener('places_changed', function() {
-    var places = searchBox.getPlaces();
-    var address = input.value;
-    var geocoder = new google.maps.Geocoder();
+    let places = searchBox.getPlaces();
+    let address = input.value;
+    let geocoder = new google.maps.Geocoder();
     geocoder.geocode( {'address': address}, function(results, status) {
       if (status == 'OK') {
-        var lat = results[0].geometry.location.lat();
-        var long = results[0].geometry.location.lng();
+        let lat = results[0].geometry.location.lat();
+        let long = results[0].geometry.location.lng();
         console.log(lat, long);
         $.ajax({
           type: "GET",
@@ -62,21 +62,39 @@ function initAutocomplete() {
       }
     })
 
-    var imageFood = 'http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/128/Restaurant-icon.png';
+    let imageFood = 'http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/128/Restaurant-icon.png';
     function createMarkerFood(place){
-      var placeLoc = place.geometry.location;
-      var marker = new google.maps.Marker({
+      let placeLoc = place.geometry.location;
+      let marker = new google.maps.Marker({
         position: place.geometry.location,
         map: map,
         icon: imageFood
         // animation: google.maps.Animation.DROP,
       });
+      google.maps.event.addListener(marker, 'click', function() {
+        console.log(place);
+        $.ajax({
+          type: "GET",
+          url: "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place.place_id + "&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
+          dataType: "json",
+          success: function(response) {
+            console.log(response);
+
+             let contentString = `<div class="tooltip"> <h4>${response.result.name}</h4>  <p>${response.result.formatted_address}</p></div>`;
+
+             let infowindow = new google.maps.InfoWindow({
+               content: contentString
+            });
+            infowindow.open(map, marker);
+          }
+        });
+      });
     }
 
-    var image = 'http://icons.iconarchive.com/icons/hadezign/hobbies/128/Movies-icon.png';
+    let image = 'http://icons.iconarchive.com/icons/hadezign/hobbies/128/Movies-icon.png';
     function createMarkerMovie(place){
-      var placeLoc = place.geometry.location;
-      var marker = new google.maps.Marker({
+      let placeLoc = place.geometry.location;
+      let marker = new google.maps.Marker({
         position: place.geometry.location,
         map: map,
         icon: image
@@ -96,31 +114,28 @@ function initAutocomplete() {
 
       google.maps.event.addListener(marker, 'click', function() {
         console.log(place);
-        var placeInfo = place.place_id;
-        var theaterLat = place.geometry.location.lat;
-        var theaterLng = place.geometry.location.lng;
-
         $.ajax({
           type: "GET",
-          url: "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + placeInfo + "&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
+          url: "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place.place_id + "&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
           dataType: "json",
           success: function(response) {
             console.log(response);
 
-             var contentString = `<div class="tooltip"> <h4>${response.result.name}</h4>  <p>${response.result.formatted_address}</p></div>`;
+             let contentString = `<div class="tooltip"> <h4>${response.result.name}</h4>  <p>${response.result.formatted_address}</p></div>`;
 
-            var infowindow = new google.maps.InfoWindow({
-              content: contentString
+             let infowindow = new google.maps.InfoWindow({
+               content: contentString
             });
             infowindow.open(map, marker);
           }
         });
         $.ajax({
          type: "GET",
-         url: "https://maps.googleapis.com/maps/api/place/radarsearch/json?location=" + theaterLat + "," + theaterLng + "&radius=804&type=restaurant&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
+         url: "https://maps.googleapis.com/maps/api/place/radarsearch/json?location=" + place.geometry.location.lat + "," + place.geometry.location.lng + "&radius=804&type=restaurant&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
          dataType: "json",
          success: function(response) {
            for (var i=0; i < response.results.length; i++) {
+             markers.push(response.results[i]);
              createMarkerFood(response.results[i]);
            }
            console.log(response);
@@ -141,16 +156,16 @@ function initAutocomplete() {
     markers.forEach(function(marker) {
       marker.setMap(null);
     });
-    markers = [];
+    // markers = [];
 
     // For each place, get the icon, name and location.
-    var bounds = new google.maps.LatLngBounds();
+    let bounds = new google.maps.LatLngBounds();
     places.forEach(function(place) {
       if (!place.geometry) {
         console.log("Returned place contains no geometry");
         return;
       }
-      var icon = {
+      let icon = {
         url: place.icon,
         size: new google.maps.Size(71, 71),
         origin: new google.maps.Point(0, 0),

@@ -78,8 +78,8 @@
 
 @media only screen and (min-width: 550px) and (max-width: 719px){
   #title-area{
-    padding-top: .6em;
-    padding-bottom: .6em;
+    padding-top: .3em;
+    padding-bottom: .3em;
   }
 
   /*------------------------------*/
@@ -87,7 +87,7 @@
     padding-bottom: 40px;
     padding-left: 6px;
     padding-right: 6px;
-    top: 30px;
+    top: 25px;
   }
 
   /*------------------------------*/
@@ -109,8 +109,8 @@
 
 @media only screen and (min-width: 720px){
   #title-area{
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding-top: .4em;
+    padding-bottom: .4em;
   }
 
   /*------------------------------*/
@@ -118,7 +118,7 @@
     padding-bottom: 80px;
     padding-left: 20px;
     padding-right: 10px;
-    top: 60px;
+    top: 40px;
   }
 
   /*------------------------------*/
