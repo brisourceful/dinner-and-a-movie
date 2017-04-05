@@ -62,7 +62,7 @@ function initAutocomplete() {
       }
     })
 
-    let imageFood = 'https://photos-2.dropbox.com/t/2/AAB48PDFVUeeDtoVZea6lLqoKVK3AC0oRxiTWug5gZp8tg/12/553914201/png/32x32/1/_/1/2/cutlery-copy.png/EM2a87cEGJtSIAIoAg/Sh3nriTH92P23s-_gKPTzqKoJShvIZHB3xAg8tSXceU?size=2048x1536&size_mode=3';
+    let imageFood = 'https://lh3.googleusercontent.com/bI7zYcPlfE9HGLEbQflx6YxrpT84hNZPBjsGdKl2KdQOilwwyXDlRjUml89jwTjfqnq2co8Ao2Jz4YfcnI4OSp5XbEW3yAzwRfqEtZRfvR-SqyTKpYeFcNoeWYQ9u7fTtKqt2mj8Lue0PFUREfVr6V4p_1GY2j5Pt2kccnWGpU-X0V6HS5ZBwz5A5Q_k2MGOB1DV216k2Qtuh00z0lGAJtnBOpmS17wkjDbNfkpJoAVhZondAqxvbGmZpYG2NlKvZw0dO1bImpLoXafhHxne19qjqMOpjaEMT6atJpDwfkEvJ7Zd_WyObn7V8KAYmNzZfzfPS6UPXwFgts61WXErZc1PhzpCCZrNskEuzLbQ0BC5aNr3GV3o40OUU9wp26Cvu_ZKqaxM9fRMDNGfj_j90rXzc5tNyLXX3E5R0V3PeR-Js-O7jKlcm_41NTgFKqnbfutqfa56HkpN1yT68K3blb8juw87JZdwTNMAqw1HkfSnMOxwmrjdgCxNuQCog00waqqCxQlzkSMkjEajdKXO0ohcSZRMoUssITn-0gYzQAUmQVmJAsqlbILyxYIHn4tXIEpsqFqydXqNlEM_gS0umGmejGqJJH-Gzd4WzyYNCn9tHZWSkNTtLDF9QNgYmFCnGOEVK98kZ-CUZ_kdtugT1BX2ISvq0zBsJWfmFAp_fA=w33-h42-no';
     function createMarkerFood(place){
       let placeLoc = place.geometry.location;
       let marker = new google.maps.Marker({
@@ -91,7 +91,7 @@ function initAutocomplete() {
       });
     }
 
-    let image = 'https://photos-1.dropbox.com/t/2/AACXwh9f4C1jpCp0DMUx-tJ4T-XTXZHNKWBKeZezhxdVRg/12/553914201/png/32x32/1/_/1/2/photograms-copy.png/EM2a87cEGJlSIAIoAg/I7wCvq1HmYLFSBVeDEY740ELmPS9eljh4HbGF8r2zCg?size=2048x1536&size_mode=3';
+    let image = 'https://lh3.googleusercontent.com/1LqU0HqJs_wNBvGeMg3ySTOJRKL77LGPH6wyi_M3pW_3pHCuSDMpvolOhr7YMw7-J8UkvzIk-VBW2g4RToK5wS7sd9_vPoRE8ZoAN8Y4OsAo-TvS5wwZjqLu_lWHX6o4OIxKJcPzw0PUdamARHccYvNuhtA5IzDKAi_URAQf2yZh1HWVYM6GckbsKi5b5XYJvN_naadzo9Fsq9AQCtRa99EWluX0HFgL9cZZLgBlDU06-lXkJWmX2sCdol6zkDN1CwoDpS2kEPMe5zmJ7Kl0_5XXU7PUFvgjasZVH6d43QvAlOhXeIV0m2Nf9Und3qHxKMEgC6-20KUCbZH2Z6-atG0z2yyaCOM9GKDXJhmvYhVcKD6i7SFGHNNJwkgQUl9hyqVhWl-R0H0mUN7XBE5lrzRVmfmyROhbhZ8rCA-laJQsA2D667HjEFc8D2E8ltnxNEoxIRDd8DBP1PmukxbB5uMqmUUs3FaMQqb77m6FnSrXOgzUFTITxeytaZLa6ObuRycyj5JecEkeAmfNZy8JDx6caDadgzD_oVWMFAmmVG7xLH-kU7Sg8rRiryLCst2PiEKSWuX8zAneNflpKI2-g89TNsldsrk5Lwpbk0FU2H_OTU5cjNIQ=s36-no';
     function createMarkerMovie(place){
       let placeLoc = place.geometry.location;
       let marker = new google.maps.Marker({
