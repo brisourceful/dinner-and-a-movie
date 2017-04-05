@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="styles/layout.css">
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/module.css">
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata|Merienda|Open+Sans+Condensed:300|Overlock|Rancho" rel="stylesheet">
   <script id="bio-template" type="text/x-handlebars-template">
     <div class="bio-about">
       <img src="{{image}}">
@@ -24,17 +25,20 @@
   <span class="icon-list2"></span>
   <nav id="navigation">
     <ul>
-      <li id="search-icon"><a href="/"><span class="icon-home">Home</span></a></li>
+      <li id="home-icon"><a href="/"><span class="icon-home">Home</span></a></li>
       <li id="map-icon"><a href="/map"><span class="icon-location2">Map</span></a></li>
       <li id="about-icon"><a href="/about"><span class="icon-info">About</span></a></li>
     </ul>
   </nav>
   <input id="pac-input" class="controls" type="text" placeholder="Search Box">
 
-  <div id="search"></div>
+  <div id="home">
+    <h2>Welcome to Dinner and a Movie!</h2>
+    <p>This is a product that allows users to find a place to watch a movie in theaters and find restaurants within a certain proximity of the theater.</p>
+  </div>
   <div id="map"></div>
   <div id="about"></div>
-  <p>&copy; Dinner and a Movie 2017</p>
+  <p id="copyright">&copy; Dinner and a Movie 2017</p>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk&libraries=places&callback=initAutocomplete" async defer></script>
   <script src="scripts/models/map.js"></script>
 
@@ -44,9 +48,9 @@
 
   <script src="scripts/models/bio.js"></script>
 
-  <script src="scripts/controllers/searchController.js"></script>
+  <script src="scripts/controllers/homeController.js"></script>
   <script src="scripts/controllers/mapController.js"></script>
   <script src="scripts/controllers/aboutController.js"></script>
-  
+
   <script src="scripts/controllers/routes.js"></script>
 </body>

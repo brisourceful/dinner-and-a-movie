@@ -1,13 +1,13 @@
 'use strict';
 (function(module){
-  const searchController = {};
-  searchController.showSearch = function(){
+  const homeController = {};
+  homeController.showHome = function(){
     $('#about').hide();
     $('#map').hide();
-    $('#search-icon').hide();
+    $('#home-icon').hide();
     $('#about-icon').show();
     $('#map-icon').show();
     $('#search').fadeIn('slow');
   }
-  module.searchController = searchController;
+  module.homeController = homeController;
 })(window);
