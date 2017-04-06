@@ -11,7 +11,8 @@
   }
 }
 #navigation ul li{
-  background-color: #EDAF14;
+  background-color: white;
+  opacity: 0.4;
   animation-duration: .2s;
   animation-name: slideIn;
   border-left: 2px solid black;

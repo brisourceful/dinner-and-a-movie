@@ -1,16 +1,27 @@
 *{
-  font-family: 'Overlock', cursive;
+  font-family: Helvetica;
   /*font-family: 'Open Sans Condensed', sans-serif;*/
   /*font-family: 'Rancho', cursive;*/
 }
-
+#home {
+  background-image: url('/images/popcorn-1085072.jpg');
+  background-size: cover;
+  height: 100%;
+  margin-top: 0;
+}
+h2.home {
+  text-align: center;
+  margin-top: 0;
+}
 /*------------------------------*/
 #title-area{
-  background-color: #EDAF14;
+  background-color: none;
+  border: none;
 }
 #title-area h1{
-  font-family: 'Merienda', cursive;
-  font-size: 1.8em;
+  font-family: Helvetica;
+  font-size: 0.8em;
+  margin-left: 40px;
 }
 
 /*------------------------------*/
