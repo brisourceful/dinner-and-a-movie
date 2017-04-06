@@ -3,6 +3,8 @@
 
 let markers = [];
 let foodMarkers = [];
+let infoMovieArray = [];
+let infoFoodArray = [];
 
 function initAutocomplete() {
   let map = new google.maps.Map(document.getElementById('map'), {
@@ -23,7 +25,6 @@ function initAutocomplete() {
   // Listen for the event fired when the user selects a prediction and retrieve
   // more details for that place.
   searchBox.addListener('places_changed', function() {
-    // deleteMarkers();
     let places = searchBox.getPlaces();
     let address = input.value;
     let geocoder = new google.maps.Geocoder();
@@ -56,7 +57,6 @@ function initAutocomplete() {
 
     let imageFood = 'https://lh3.googleusercontent.com/bI7zYcPlfE9HGLEbQflx6YxrpT84hNZPBjsGdKl2KdQOilwwyXDlRjUml89jwTjfqnq2co8Ao2Jz4YfcnI4OSp5XbEW3yAzwRfqEtZRfvR-SqyTKpYeFcNoeWYQ9u7fTtKqt2mj8Lue0PFUREfVr6V4p_1GY2j5Pt2kccnWGpU-X0V6HS5ZBwz5A5Q_k2MGOB1DV216k2Qtuh00z0lGAJtnBOpmS17wkjDbNfkpJoAVhZondAqxvbGmZpYG2NlKvZw0dO1bImpLoXafhHxne19qjqMOpjaEMT6atJpDwfkEvJ7Zd_WyObn7V8KAYmNzZfzfPS6UPXwFgts61WXErZc1PhzpCCZrNskEuzLbQ0BC5aNr3GV3o40OUU9wp26Cvu_ZKqaxM9fRMDNGfj_j90rXzc5tNyLXX3E5R0V3PeR-Js-O7jKlcm_41NTgFKqnbfutqfa56HkpN1yT68K3blb8juw87JZdwTNMAqw1HkfSnMOxwmrjdgCxNuQCog00waqqCxQlzkSMkjEajdKXO0ohcSZRMoUssITn-0gYzQAUmQVmJAsqlbILyxYIHn4tXIEpsqFqydXqNlEM_gS0umGmejGqJJH-Gzd4WzyYNCn9tHZWSkNTtLDF9QNgYmFCnGOEVK98kZ-CUZ_kdtugT1BX2ISvq0zBsJWfmFAp_fA=w33-h42-no';
     function createMarkerFood(place){
-      let placeLoc = place.geometry.location;
       let marker = new google.maps.Marker({
         position: place.geometry.location,
         map: map,
@@ -74,11 +74,14 @@ function initAutocomplete() {
           success: function(response) {
             console.log(response);
 
-             let contentString = `<div class="tooltip"> <h4>${response.result.name}</h4>  <p>${response.result.formatted_address}</p></div>`;
-
+             let contentString = `<div class="tooltip"> <h4><a href = "${response.result.website}">${response.result.name}</a></h4>  <p>${response.result.formatted_address}</p><p><p>Rating: ${response.result.rating} / 5</p></p></div><div><h4>Top Review:</h4><h5>${response.result.reviews[0].author_name}</h5><p>"${response.result.reviews[0].text}"</p></div>`
              let infowindow = new google.maps.InfoWindow({
                content: contentString
             });
+            if(infoFoodArray.length > 0){
+              deleteInfoWindowFood();
+            }
+            infoFoodArray.push(infowindow);
             infowindow.open(map, marker);
           }
         });
@@ -87,7 +90,6 @@ function initAutocomplete() {
 
     let image = 'https://lh3.googleusercontent.com/Fuq0JAQtlVxCPvSAlVkKFmNrkYNLm78VFqG8UPq0t9U_eGyxZalbanmt2mJTqPHPab3uZQhTw7dh4fuNUK_iGLRIckwtyUvqExNWtTkNOIYP2mWAAWOxEY1yLPAsZR1jDkMTh-njmWqacXUYMkTdR5sENm5Flqkf8CNKw-wjCsKDDFtqXsC2HBY0pNo_CUTR_vQeprFZuGq2nM3RP9rTEdA95BySWM_BUVMpYAOXB0OnO2fwFprOmtV-OEXxQz8B-mGaN1nsjZXOHhOztwdB89QjiCVA4Iukf7HpsR65JO7RmYi_dgiU4jTonHA7i6i7BOLyCx-1jVZis5I_tQgk9DgJvkZHD1quaw6PMPuYUQRKGMkQ_SbUQi-3bnISoLKbpIPtBlTTZXQvunHv1O-8P11cHFGzeFHpPX5QCARYtRvQsO0uWNvRI6NycleXFykw0z5-lJBknf3rdhlGC1DUwqn_ezxS-zCb-v81BKArLqHnQBuXqaIFK1cC1vFUc7oWgaAZvppHGKp1nLtuEmX98kCEJHPY0IJjRJpQuwdzInwAeC7vPrKundUZ8IXbKeqkGa_QQPpXpYHdNktKMMIPKxzZeyGZiwX0Wgrb5cOXaigglQHokZ3kyIyovEYxnIJyMQUANvDDIP2TSBCwhDeghLrm4x0JBJU42-ejtbZ2Vw=s36-no';
     function createMarkerMovie(place){
-      let placeLoc = place.geometry.location;
       let marker = new google.maps.Marker({
         position: place.geometry.location,
         icon: image,
@@ -107,11 +109,15 @@ function initAutocomplete() {
           },
           success: function(response) {
 
-             let contentString = `<div class="tooltip"> <h4>${response.result.name}</h4>  <p>${response.result.formatted_address}</p></div>`;
+             let contentString = `<div class="tooltip"> <h4><a href = "${response.result.website}">${response.result.name}</a></h4>  <p>${response.result.formatted_address}</p><p><p>Rating: ${response.result.rating} / 5</p></p></div><div><h4>Top Review:</h4><h5>${response.result.reviews[0].author_name}</h5><p>"${response.result.reviews[0].text}"</p></div>`
 
              let infowindow = new google.maps.InfoWindow({
                content: contentString
             });
+            if(infoMovieArray.length > 0){
+              deleteInfoWindowMovie();
+            }
+            infoMovieArray.push(infowindow);
             infowindow.open(map, marker);
           }
         });
@@ -127,7 +133,7 @@ function initAutocomplete() {
            if(foodMarkers.length > 0){
              deletefoodMarkers();
            }
-           for (var i=0; i < response.results.length; i++) {
+           for (var i=0; i < 20; i++) {
              createMarkerFood(response.results[i]);
            }
          }
@@ -187,6 +193,18 @@ function deletefoodMarkers(){
     marker.setMap(null);
   });
   foodMarkers = [];
+}
+function deleteInfoWindowMovie(){
+  infoMovieArray.forEach(function(marker){
+    marker.close();
+  });
+  infoMovieArray = [];
+}
+function deleteInfoWindowFood(){
+  infoFoodArray.forEach(function(marker){
+    marker.close();
+  });
+  infoFoodArray = [];
 }
 function clearMarkers() {
   setMapOnAll(null);
