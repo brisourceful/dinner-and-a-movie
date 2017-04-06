@@ -18,7 +18,7 @@
   border-left: 2px solid black;
   border-right: 2px solid black;
   border-bottom: 2px solid black;
-  font-size: 1.4em;
+  font-size: .2em;
   padding-left: 1.2em;
   padding-right: 1.2em;
   padding-top: .4em;
@@ -32,9 +32,6 @@
   padding: 0px;
 }
 .hamburger-button:hover ~ #navigation{
-  display: block;
-}
-.hamburger-button:active ~ #navigation{
   display: block;
 }
 #navigation:hover{

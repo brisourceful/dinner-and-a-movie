@@ -25,23 +25,26 @@
 </head>
 <body>
   <div id="title-area">
-    <h1><img src="/images/clapperboard.png" class="titleImage header-nav"><img src="/images/popcorn.png" class="titleImage header-nav"><button type="button" name="button" class="hamburger-button header-nav">&#9776;</button></h1>
+    <h1><img src="/images/clapperboard.png" class="titleImage header-nav">
+      <img src="/images/popcorn.png" class="titleImage header-nav">
+      <button type="button" name="button" class="hamburger-button header-nav">&#9776;</button>
+      <nav id="navigation">
+        <ul>
+          <li id="home-icon"><a href="/"><span class="icon-home">Home</span></a></li>
+          <li id="map-icon"><a href="/map"><span class="icon-location2">Map</span></a></li>
+          <li id="about-icon"><a href="/about"><span class="icon-info">About</span></a></li>
+        </ul>
+      </nav>
+    </h1>
   </div>
-  <nav id="navigation">
-    <ul>
-      <li id="home-icon"><a href="/"><span class="icon-home">Home</span></a></li>
-      <li id="map-icon"><a href="/map"><span class="icon-location2">Map</span></a></li>
-      <li id="about-icon"><a href="/about"><span class="icon-info">About</span></a></li>
-    </ul>
-  </nav>
   <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-
   <div id="home">
     <div id="h2-container">
       <h2 class="home">Dinner and a Movie</h2>
     </div>
     <div id="p-container">
-      <p class ="home">Locate a movie theater and find nearby restaurants.</p>
+    <p class ="home">Locate a movie theater and find nearby restaurants.</p>
+  </div>
     <div id="text-container">
       <h2 class="home">Welcome to Dinner and a Movie!</h2>
       <p class ="home">This is a product that allows users to find a place to watch a movie in theaters and find restaurants within a certain proximity of the theater.</p>
@@ -54,7 +57,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
   <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
-  
+
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk&libraries=places&callback=initAutocomplete" async defer></script>
   <script src="scripts/models/map.js"></script>
 
