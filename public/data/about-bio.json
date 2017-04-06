@@ -1,25 +1,33 @@
 [{
   "name": "Enrique Rico",
+  "firstname": "Enrique",
   "image": "/images/enrique.png",
   "github": "https://github.com/EnriqueRico",
-  "bio": "blah blah blah"
+  "bio": "blaaaaah",
+  "gif": "/images/enrique-bio-gif.mp4"
   },
 {
   "name": "Lindsay Gilbert",
+  "firstname": "Lindsay",
   "image": "/images/linds.png",
   "github": "https://github.com/lindsgil",
-  "bio": "blah blah blah"
+  "bio": "blah blah blah",
+  "gif": "/images/linds-bio-gif.mp4"
 
   },
 {
   "name": "Brianna Burrows",
+  "firstname": "Brianna",
   "image": "/images/bri.png",
   "github": "https://github.com/url",
-  "bio": "blah blah blah"
+  "bio": "blah blah blah",
+  "gif": "/images/brie-bio-gif.gif"
   },
   {
   "name": "Logan Absher",
+  "firstname": "Logan",
   "image": "/images/logan.png",
   "github": "https://github.com/loganabsher",
-  "bio": "I began coding two years ago learning Python in a running start class, after that I started at UW taking CSC 142 and 143 and I really enjoyed what I was doing. I wanted to look for a faster alternative for learning programming and after a little research I settled for Codefellows."
+  "bio": "I began coding two years ago learning Python in a running start class, after that I started at UW taking CSC 142 and 143 and I really enjoyed what I was doing. I wanted to look for a faster alternative for learning programming and after a little research I settled for Codefellows.",
+  "gif": "/images/logan-bio-gif.mp4"
 }]
