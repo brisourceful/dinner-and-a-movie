@@ -31,7 +31,10 @@
   margin: 0px;
   padding: 0px;
 }
-.icon-list2:hover ~ #navigation{
+.hamburger-button:hover ~ #navigation{
+  display: block;
+}
+.hamburger-button:active ~ #navigation{
   display: block;
 }
 #navigation:hover{
