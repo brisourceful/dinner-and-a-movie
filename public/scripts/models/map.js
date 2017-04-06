@@ -1,6 +1,6 @@
 'use strict';
 
-var movie;
+
 let markers = [];
 let foodMarkers = [];
 
@@ -31,11 +31,14 @@ function initAutocomplete() {
       if (status == 'OK') {
         let lat = results[0].geometry.location.lat();
         let long = results[0].geometry.location.lng();
-        console.log(lat, long);
         $.ajax({
           type: "GET",
-          url: "https://maps.googleapis.com/maps/api/place/radarsearch/json?location=" + lat + "," + long + "&radius=5000&type=movie_theater&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
+          url: '/getlocation',
           dataType: "json",
+          headers: {
+            lat: lat,
+            long: long
+          },
           success: function(response) {
             if(markers.length > 0){
               deleteMarkers();
@@ -46,8 +49,6 @@ function initAutocomplete() {
             for (var i=0; i < response.results.length; i++) {
               createMarkerMovie(response.results[i]);
             }
-            console.log(response);
-            movie=response;
           }
         });
       }
@@ -64,11 +65,12 @@ function initAutocomplete() {
       });
       foodMarkers.push(marker);
       google.maps.event.addListener(marker, 'click', function() {
-        console.log(place);
+        console.log('getting this thing');
         $.ajax({
           type: "GET",
           url: "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place.place_id + "&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
           dataType: "json",
+          // url:
           success: function(response) {
             console.log(response);
 
@@ -83,7 +85,7 @@ function initAutocomplete() {
       });
     }
 
-    let image = 'https://lh3.googleusercontent.com/1LqU0HqJs_wNBvGeMg3ySTOJRKL77LGPH6wyi_M3pW_3pHCuSDMpvolOhr7YMw7-J8UkvzIk-VBW2g4RToK5wS7sd9_vPoRE8ZoAN8Y4OsAo-TvS5wwZjqLu_lWHX6o4OIxKJcPzw0PUdamARHccYvNuhtA5IzDKAi_URAQf2yZh1HWVYM6GckbsKi5b5XYJvN_naadzo9Fsq9AQCtRa99EWluX0HFgL9cZZLgBlDU06-lXkJWmX2sCdol6zkDN1CwoDpS2kEPMe5zmJ7Kl0_5XXU7PUFvgjasZVH6d43QvAlOhXeIV0m2Nf9Und3qHxKMEgC6-20KUCbZH2Z6-atG0z2yyaCOM9GKDXJhmvYhVcKD6i7SFGHNNJwkgQUl9hyqVhWl-R0H0mUN7XBE5lrzRVmfmyROhbhZ8rCA-laJQsA2D667HjEFc8D2E8ltnxNEoxIRDd8DBP1PmukxbB5uMqmUUs3FaMQqb77m6FnSrXOgzUFTITxeytaZLa6ObuRycyj5JecEkeAmfNZy8JDx6caDadgzD_oVWMFAmmVG7xLH-kU7Sg8rRiryLCst2PiEKSWuX8zAneNflpKI2-g89TNsldsrk5Lwpbk0FU2H_OTU5cjNIQ=s36-no';
+    let image = 'https://lh3.googleusercontent.com/Fuq0JAQtlVxCPvSAlVkKFmNrkYNLm78VFqG8UPq0t9U_eGyxZalbanmt2mJTqPHPab3uZQhTw7dh4fuNUK_iGLRIckwtyUvqExNWtTkNOIYP2mWAAWOxEY1yLPAsZR1jDkMTh-njmWqacXUYMkTdR5sENm5Flqkf8CNKw-wjCsKDDFtqXsC2HBY0pNo_CUTR_vQeprFZuGq2nM3RP9rTEdA95BySWM_BUVMpYAOXB0OnO2fwFprOmtV-OEXxQz8B-mGaN1nsjZXOHhOztwdB89QjiCVA4Iukf7HpsR65JO7RmYi_dgiU4jTonHA7i6i7BOLyCx-1jVZis5I_tQgk9DgJvkZHD1quaw6PMPuYUQRKGMkQ_SbUQi-3bnISoLKbpIPtBlTTZXQvunHv1O-8P11cHFGzeFHpPX5QCARYtRvQsO0uWNvRI6NycleXFykw0z5-lJBknf3rdhlGC1DUwqn_ezxS-zCb-v81BKArLqHnQBuXqaIFK1cC1vFUc7oWgaAZvppHGKp1nLtuEmX98kCEJHPY0IJjRJpQuwdzInwAeC7vPrKundUZ8IXbKeqkGa_QQPpXpYHdNktKMMIPKxzZeyGZiwX0Wgrb5cOXaigglQHokZ3kyIyovEYxnIJyMQUANvDDIP2TSBCwhDeghLrm4x0JBJU42-ejtbZ2Vw=s36-no';
     function createMarkerMovie(place){
       let placeLoc = place.geometry.location;
       let marker = new google.maps.Marker({
@@ -94,13 +96,16 @@ function initAutocomplete() {
       });
       markers.push(marker);
       google.maps.event.addListener(marker, 'click', function() {
-        console.log(place);
+        console.log('Hit this line 102');
         $.ajax({
           type: "GET",
-          url: "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place.place_id + "&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
+          url: '/getMovieInfo',
+          // url: "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place.place_id + "&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
           dataType: "json",
+          headers: {
+
+          },
           success: function(response) {
-            console.log(response);
 
              let contentString = `<div class="tooltip"> <h4>${response.result.name}</h4>  <p>${response.result.formatted_address}</p></div>`;
 
@@ -112,8 +117,12 @@ function initAutocomplete() {
         });
         $.ajax({
          type: "GET",
-         url: "https://maps.googleapis.com/maps/api/place/radarsearch/json?location=" + place.geometry.location.lat + "," + place.geometry.location.lng + "&radius=804&type=restaurant&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
+         url: '/getFood',
+        //  url: "https://maps.googleapis.com/maps/api/place/radarsearch/json?location=" + place.geometry.location.lat + "," + place.geometry.location.lng + "&radius=804&type=restaurant&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
          dataType: "json",
+         headers: {
+
+         },
          success: function(response) {
            if(foodMarkers.length > 0){
              deletefoodMarkers();
@@ -121,7 +130,6 @@ function initAutocomplete() {
            for (var i=0; i < response.results.length; i++) {
              createMarkerFood(response.results[i]);
            }
-           console.log(response);
          }
        });
 
