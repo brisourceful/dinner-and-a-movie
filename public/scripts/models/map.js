@@ -16,26 +16,6 @@ function initAutocomplete() {
   let searchBox = new google.maps.places.SearchBox(input);
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-
-  // function codeAddress() {
-  //
-  //   if(markers.length > 0){
-  //     deleteMarkers();
-  //   }
-  //   let address = document.getElementById('address').value;
-  //   geocoder.geocode( { 'address': address}, function(results, status) {
-  //     if (status == 'OK') {
-  //       map.setCenter(results[0].geometry.location);
-  //       let marker = new google.maps.Marker({
-  //           map: map,
-  //           position: results[0].geometry.location
-  //       });
-  //     } else {
-  //       alert('Geocode was not successful for the following reason: ' + status);
-  //     }
-  //   });
-  // }
-
   // Bias the SearchBox results towards current map's viewport.
   map.addListener('bounds_changed', function() {
     searchBox.setBounds(map.getBounds());
@@ -57,11 +37,13 @@ function initAutocomplete() {
           url: "https://maps.googleapis.com/maps/api/place/radarsearch/json?location=" + lat + "," + long + "&radius=5000&type=movie_theater&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
           dataType: "json",
           success: function(response) {
-            // if(markers.length > 0){
-            //   markers[i].setMap(null)
-            // }
+            if(markers.length > 0){
+              deleteMarkers();
+            }
+            if(foodMarkers.length > 0){
+              deletefoodMarkers();
+            }
             for (var i=0; i < response.results.length; i++) {
-              markers.push(response.results[i]);
               createMarkerMovie(response.results[i]);
             }
             console.log(response);
@@ -80,6 +62,7 @@ function initAutocomplete() {
         icon: imageFood
         // animation: google.maps.Animation.DROP,
       });
+      foodMarkers.push(marker);
       google.maps.event.addListener(marker, 'click', function() {
         console.log(place);
         $.ajax({
@@ -105,11 +88,11 @@ function initAutocomplete() {
       let placeLoc = place.geometry.location;
       let marker = new google.maps.Marker({
         position: place.geometry.location,
-        map: map,
-        icon: image
+        icon: image,
+        map: map
         // animation: google.maps.Animation.DROP,
       });
-
+      markers.push(marker);
       google.maps.event.addListener(marker, 'click', function() {
         console.log(place);
         $.ajax({
@@ -132,13 +115,10 @@ function initAutocomplete() {
          url: "https://maps.googleapis.com/maps/api/place/radarsearch/json?location=" + place.geometry.location.lat + "," + place.geometry.location.lng + "&radius=804&type=restaurant&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
          dataType: "json",
          success: function(response) {
-          //  if(foodMarkers.length > 0){
-          //    foodMarkers.forEach(function(marker) {
-          //      marker.geometry.setMap(null);
-          //    });
-          //  }
+           if(foodMarkers.length > 0){
+             deletefoodMarkers();
+           }
            for (var i=0; i < response.results.length; i++) {
-             foodMarkers.push(response.results[i]);
              createMarkerFood(response.results[i]);
            }
            console.log(response);
@@ -188,14 +168,17 @@ function initAutocomplete() {
     map.fitBounds(bounds);
   });
 }
-function setMapOnAll(map) {
-  markers.forEach(function(marker){
-    marker.geometry.setMap(map);
-  });
-}
 function deleteMarkers() {
-  clearMarkers();
+  markers.forEach(function(marker){
+    marker.setMap(null);
+  });
   markers = [];
+}
+function deletefoodMarkers(){
+  foodMarkers.forEach(function(marker){
+    marker.setMap(null);
+  });
+  foodMarkers = [];
 }
 function clearMarkers() {
   setMapOnAll(null);
