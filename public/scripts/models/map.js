@@ -1,6 +1,6 @@
 'use strict';
 
-var movie;
+
 let markers = [];
 let foodMarkers = [];
 let infoMovieArray = [];
@@ -32,11 +32,14 @@ function initAutocomplete() {
       if (status == 'OK') {
         let lat = results[0].geometry.location.lat();
         let long = results[0].geometry.location.lng();
-        console.log(lat, long);
         $.ajax({
           type: "GET",
-          url: "https://maps.googleapis.com/maps/api/place/radarsearch/json?location=" + lat + "," + long + "&radius=5000&type=movie_theater&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
+          url: '/getlocation',
           dataType: "json",
+          headers: {
+            lat: lat,
+            long: long
+          },
           success: function(response) {
             if(markers.length > 0){
               deleteMarkers();
@@ -47,8 +50,6 @@ function initAutocomplete() {
             for (var i=0; i < response.results.length; i++) {
               createMarkerMovie(response.results[i]);
             }
-            console.log(response);
-            movie=response;
           }
         });
       }
@@ -64,11 +65,12 @@ function initAutocomplete() {
       });
       foodMarkers.push(marker);
       google.maps.event.addListener(marker, 'click', function() {
-        console.log(place);
+        console.log('getting this thing');
         $.ajax({
           type: "GET",
           url: "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place.place_id + "&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
           dataType: "json",
+          // url:
           success: function(response) {
             console.log(response);
 
@@ -96,13 +98,16 @@ function initAutocomplete() {
       });
       markers.push(marker);
       google.maps.event.addListener(marker, 'click', function() {
-        console.log(place);
+        console.log('Hit this line 102');
         $.ajax({
           type: "GET",
-          url: "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place.place_id + "&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
+          url: '/getMovieInfo',
+          // url: "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place.place_id + "&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
           dataType: "json",
+          headers: {
+
+          },
           success: function(response) {
-            console.log(response);
 
              let contentString = `<div class="tooltip"> <h4><a href = "${response.result.website}">${response.result.name}</a></h4>  <p>${response.result.formatted_address}</p><p><p>Rating: ${response.result.rating} / 5</p></p></div><div><h4>Top Review:</h4><h5>${response.result.reviews[0].author_name}</h5><p>"${response.result.reviews[0].text}"</p></div>`
 
@@ -118,8 +123,12 @@ function initAutocomplete() {
         });
         $.ajax({
          type: "GET",
-         url: "https://maps.googleapis.com/maps/api/place/radarsearch/json?location=" + place.geometry.location.lat + "," + place.geometry.location.lng + "&radius=804&type=restaurant&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
+         url: '/getFood',
+        //  url: "https://maps.googleapis.com/maps/api/place/radarsearch/json?location=" + place.geometry.location.lat + "," + place.geometry.location.lng + "&radius=804&type=restaurant&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
          dataType: "json",
+         headers: {
+
+         },
          success: function(response) {
            if(foodMarkers.length > 0){
              deletefoodMarkers();
@@ -127,7 +136,6 @@ function initAutocomplete() {
            for (var i=0; i < 20; i++) {
              createMarkerFood(response.results[i]);
            }
-           console.log(response);
          }
        });
 
