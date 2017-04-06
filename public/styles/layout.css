@@ -8,6 +8,7 @@
 /*------------------------------*/
 #navigation ul li{
   list-style: none;
+  border: none;
 }
 #navigation{
   float: right;
@@ -42,6 +43,7 @@
 /*------------------------------*/
 #copyright{
   float: left;
+  margin-top: 20vw;
 }
 
 

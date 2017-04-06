@@ -7,6 +7,7 @@
   <!-- <meta property="og:image" content="http://euro-travel-example.com/thumbnail.jpg"> -->
   <meta property="og:url" content="https://dinner-and-a-movie.herokuapp.com/map">
   <title>Dinner and a Movie</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="stylesheet" href="styles/icon.css">
   <link rel="stylesheet" href="styles/map.css">
   <link rel="stylesheet" href="styles/layout.css">
@@ -15,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css?family=Inconsolata|Merienda|Open+Sans+Condensed:300|Overlock|Rancho" rel="stylesheet">
   <script id="bio-template" type="text/x-handlebars-template">
     <div class="bio-about">
-      <img src="{{image}}">
+      <img src="{{image}}" class="bio-image" id="{{firstname}}">
       <h4>{{name}}</h4>
       <address><a href="{{github}}"><span class="icon-github">GitHub</span></a></address>
       <section class="bio-body"><p>{{bio}}</p></section>
@@ -24,33 +25,37 @@
 </head>
 <body>
   <div id="title-area">
-    <h1>Dinner and a Movie</h1>
+    <h1><img src="/images/clapperboard.png" class="titleImage header-nav">
+      <img src="/images/popcorn.png" class="titleImage header-nav">
+      <button type="button" name="button" class="hamburger-button header-nav">&#9776;</button>
+      <nav id="navigation">
+        <ul>
+          <li id="home-icon"><a href="/"><span class="icon-home">Home</span></a></li>
+          <li id="map-icon"><a href="/map"><span class="icon-location2">Map</span></a></li>
+          <li id="about-icon"><a href="/about"><span class="icon-info">About</span></a></li>
+        </ul>
+      </nav>
+    </h1>
   </div>
-  <span class="icon-list2"></span>
-  <nav id="navigation">
-    <ul>
-      <li id="home-icon"><a href="/"><span class="icon-home">Home</span></a></li>
-      <li id="map-icon"><a href="/map"><span class="icon-location2">Map</span></a></li>
-      <li id="about-icon"><a href="/about"><span class="icon-info">About</span></a></li>
-    </ul>
-  </nav>
   <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-
   <div id="home">
-    <div id="text-container">
-      <h2 class="home">Welcome to Dinner and a Movie!</h2>
-      <p class ="home">This is a product that allows users to find a place to watch a movie in theaters and find restaurants within a certain proximity of the theater.</p>
-    </div>  
+    <div id="h2-container">
+      <h2 class="home">Dinner and a Movie</h2>
+    </div>
+    <div id="p-container">
+    <p class ="home">Locate a movie theater and find nearby restaurants.</p>
+    </div>
   </div>
   <div id="map"></div>
   <div id="about"></div>
   <p id="copyright">&copy; Dinner and a Movie 2017</p>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk&libraries=places&callback=initAutocomplete" async defer></script>
-  <script src="scripts/models/map.js"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
   <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk&libraries=places&callback=initAutocomplete" async defer></script>
+  <script src="scripts/models/map.js"></script>
 
   <script src="scripts/models/bio.js"></script>
 
@@ -59,4 +64,5 @@
   <script src="scripts/controllers/aboutController.js"></script>
 
   <script src="scripts/controllers/routes.js"></script>
+
 </body>

@@ -8,6 +8,26 @@
   font-weight: normal;
   font-style: normal;
 }
+.bio-image:hover {
+  content: url('/images/brie-bio-gif.gif');
+}
+.titleImage {
+  height: 50px;
+  width: auto;
+}
+.hamburger-button {
+  font-size: 3vw;
+  float: right;
+  height: 50px;
+  line-height: 3px;
+}
+button {
+  border: none;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.header-nav {
+  display: inline;
+}
 
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
