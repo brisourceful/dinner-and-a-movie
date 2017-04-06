@@ -61,20 +61,20 @@ function initAutocomplete() {
         position: place.geometry.location,
         map: map,
         icon: imageFood
-        // animation: google.maps.Animation.DROP,
       });
       foodMarkers.push(marker);
       google.maps.event.addListener(marker, 'click', function() {
-        console.log('getting this thing');
         $.ajax({
           type: "GET",
-          url: "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place.place_id + "&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
+          url: '/getFoodInfo',
           dataType: "json",
-          // url:
+          headers: {
+            place: place.place_id
+          },
           success: function(response) {
-            console.log(response);
 
              let contentString = `<div class="tooltip"> <h4><a href = "${response.result.website}">${response.result.name}</a></h4>  <p>${response.result.formatted_address}</p><p><p>Rating: ${response.result.rating} / 5</p></p></div><div><h4>Top Review:</h4><h5>${response.result.reviews[0].author_name}</h5><p>"${response.result.reviews[0].text}"</p></div>`
+
              let infowindow = new google.maps.InfoWindow({
                content: contentString
             });
@@ -94,18 +94,15 @@ function initAutocomplete() {
         position: place.geometry.location,
         icon: image,
         map: map
-        // animation: google.maps.Animation.DROP,
       });
       markers.push(marker);
       google.maps.event.addListener(marker, 'click', function() {
-        console.log('Hit this line 102');
         $.ajax({
           type: "GET",
           url: '/getMovieInfo',
-          // url: "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place.place_id + "&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
           dataType: "json",
           headers: {
-
+            place: place.place_id
           },
           success: function(response) {
 
@@ -124,10 +121,10 @@ function initAutocomplete() {
         $.ajax({
          type: "GET",
          url: '/getFood',
-        //  url: "https://maps.googleapis.com/maps/api/place/radarsearch/json?location=" + place.geometry.location.lat + "," + place.geometry.location.lng + "&radius=804&type=restaurant&key=AIzaSyA-iDM4BAeMDij24qqNdj-g4BL-G9Y7afk",
          dataType: "json",
          headers: {
-
+           lat: place.geometry.location.lat,
+           long: place.geometry.location.lng
          },
          success: function(response) {
            if(foodMarkers.length > 0){
