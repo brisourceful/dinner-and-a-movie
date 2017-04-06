@@ -1,17 +1,31 @@
 *{
-  font-family: Helvetica;
+  font-family: 'Roboto', sans-serif;
   /*font-family: 'Open Sans Condensed', sans-serif;*/
   /*font-family: 'Rancho', cursive;*/
 }
-#home {
+body {
   background-image: url('/images/popcorn-1085072.jpg');
   background-size: cover;
   height: 100%;
   margin-top: 0;
 }
-h2.home {
+#h2-container {
+  /*background-color: rgba(255, 255, 255);*/
+  margin-top: 12vw;
+  width: auto;
+  font-weight: lighter;
   text-align: center;
-  margin-top: 0;
+  font-size: 5.4vw;
+}
+h2.home {
+  font-family: 'Roboto', sans-serif;
+}
+#p-container {
+  /*background-color: rgba(255, 255, 255, 0.3);*/
+  margin-top: 1vw;
+  width: auto;
+  text-align: center;
+  letter-spacing: 0.65vw;
 }
 /*------------------------------*/
 #title-area{
@@ -19,8 +33,6 @@ h2.home {
   border: none;
 }
 #title-area h1{
-  font-family: Helvetica;
-  font-size: 0.8em;
   margin-left: 40px;
 }
 

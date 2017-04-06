@@ -12,3 +12,7 @@
   }
   module.homeController = homeController;
 })(window);
+
+$('.hamburger-button').on('click', function(){
+  $('#navigation').show();
+});

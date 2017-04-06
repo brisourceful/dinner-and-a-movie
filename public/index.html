@@ -7,6 +7,7 @@
   <!-- <meta property="og:image" content="http://euro-travel-example.com/thumbnail.jpg"> -->
   <meta property="og:url" content="https://dinner-and-a-movie.herokuapp.com/map">
   <title>Dinner and a Movie</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="stylesheet" href="styles/icon.css">
   <link rel="stylesheet" href="styles/map.css">
   <link rel="stylesheet" href="styles/layout.css">
@@ -24,9 +25,8 @@
 </head>
 <body>
   <div id="title-area">
-    <h1>Dinner and a Movie</h1>
+    <h1><img src="/images/clapperboard.png" class="titleImage header-nav"><img src="/images/popcorn.png" class="titleImage header-nav"><button type="button" name="button" class="hamburger-button header-nav">&#9776;</button></h1>
   </div>
-  <span class="icon-list2"></span>
   <nav id="navigation">
     <ul>
       <li id="home-icon"><a href="/"><span class="icon-home">Home</span></a></li>
@@ -37,6 +37,11 @@
   <input id="pac-input" class="controls" type="text" placeholder="Search Box">
 
   <div id="home">
+    <div id="h2-container">
+      <h2 class="home">Dinner and a Movie</h2>
+    </div>
+    <div id="p-container">
+      <p class ="home">Locate a movie theater and find nearby restaurants.</p>
     <div id="text-container">
       <h2 class="home">Welcome to Dinner and a Movie!</h2>
       <p class ="home">This is a product that allows users to find a place to watch a movie in theaters and find restaurants within a certain proximity of the theater.</p>
