@@ -52,7 +52,9 @@ h2.home {
 .bio-about h4{
   font-size: 1.4em;
 }
-
+.bio-body {
+  font-size: 1.4em;
+}
 /*------------------------------*/
 #copyright{
   font-family: 'Inconsolata', monospace;
