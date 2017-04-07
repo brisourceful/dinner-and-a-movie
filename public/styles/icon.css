@@ -13,8 +13,8 @@
 }
 .mapbutton {
   height: 5vw;
-  width: 10vw;
-  background-color: rgba(211, 4, 14, 0.6);
+  width: auto;
+  background-color: rgba(211, 4, 14, 0.8);
   border-radius: 4vw;
   text-align: center;
   margin-top: 5vw;
@@ -23,6 +23,7 @@
   display: block;
   margin-bottom: 5vw;
   font-size: 3vw;
+  border-style: solid 1px black;
 }
 a {
   text-decoration: none !important;

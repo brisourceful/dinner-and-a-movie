@@ -15,17 +15,21 @@ body {
   width: auto;
   font-weight: lighter;
   text-align: center;
-  font-size: 5.4vw;
+  font-size: 7vw;
+  margin-bottom: 0vw;
 }
 h2.home {
   font-family: 'Roboto', sans-serif;
+  margin-bottom: 0vw;
 }
 #p-container {
   /*background-color: rgba(255, 255, 255, 0.3);*/
   margin-top: 1vw;
+  font-size: 4vw;
+  font-weight: bold;
   width: auto;
   text-align: center;
-  letter-spacing: 0.65vw;
+  /*letter-spacing: 0.65vw;*/
 }
 /*------------------------------*/
 #title-area{
