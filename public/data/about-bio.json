@@ -3,16 +3,14 @@
   "firstname": "Enrique",
   "image": "/images/enrique.png",
   "github": "https://github.com/EnriqueRico",
-  "bio": "I never coded a day in my life until I started Code Fellows in February.  So far it's been an exciting challenge and reminds me that I made a great choice in coming here.  I hope to one day work as a web developer preferably working remote so that I can travel.",
-  "gif": "/images/enrique-bio-gif.mp4"
-  },
+  "bio": "I never coded a day in my life until I started Code Fellows in February.  So far it's been an exciting challenge and reminds me that I made a great choice in coming here.  I hope to one day work as a web developer preferably working remote so that I can travel."
+},
 {
   "name": "Lindsay Gilbert",
   "firstname": "Lindsay",
   "image": "/images/linds.png",
   "github": "https://github.com/lindsgil",
-  "bio": "Hey! I'm Lindsay. I have a degree in Mechanical Engineering and before this was a Jr. Project Manager. I started coding at my previous job and really enjoyed it, which brought me to Code Fellows.",
-  "gif": "/images/linds-bio-gif.mp4"
+  "bio": "Hey! I'm Lindsay. I have a degree in Mechanical Engineering and before this was a Jr. Project Manager. I started coding at my previous job and really enjoyed it, which brought me to Code Fellows."
 
   },
 {
@@ -20,14 +18,12 @@
   "firstname": "Brianna",
   "image": "/images/bri.png",
   "github": "https://github.com/url",
-  "bio": "Brianna is a former recruiter, currently working as a freelance marketing specialist. She plans to study Full-Stack JavaScript in her 401 class at Code Fellows. After graduating, she intends to find a job in London or Berlin. She enjoys scuba diving, monitoring solar weather, and avocados. You can contact her at contact@meetbrianna.com",
-  "gif": "/images/brie-bio-gif.gif"
+  "bio": "Brianna is a former recruiter, currently working as a freelance marketing specialist. She plans to study Full-Stack JavaScript in her 401 class at Code Fellows. After graduating, she intends to find a job in London or Berlin. She enjoys scuba diving, monitoring solar weather, and avocados. You can contact her at contact@meetbrianna.com"
   },
   {
   "name": "Logan Absher",
   "firstname": "Logan",
   "image": "/images/logan.png",
   "github": "https://github.com/loganabsher",
-  "bio": "I began coding two years ago learning Python in a running start class, after that I started at UW taking CSC 142 and 143 and I really enjoyed what I was doing. I wanted to look for a faster alternative for learning programming and after a little research I settled for Codefellows.",
-  "gif": "/images/logan-bio-gif.mp4"
+  "bio": "I began coding two years ago learning Python in a running start class, after that I started at UW taking CSC 142 and 143 and I really enjoyed what I was doing. I wanted to look for a faster alternative for learning programming and after a little research I settled for Codefellows."
 }]

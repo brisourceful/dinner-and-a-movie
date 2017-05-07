@@ -14,15 +14,17 @@
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/module.css">
   <link href="https://fonts.googleapis.com/css?family=Inconsolata|Merienda|Open+Sans+Condensed:300|Overlock|Rancho" rel="stylesheet">
+
   <script id="bio-template" type="text/x-handlebars-template">
     <div class="bio-about">
       <img src="{{image}}" class="bio-image" id="{{firstname}}">
       <h4>{{name}}</h4>
       <address><a href="{{github}}"><span class="icon-github">GitHub</span></a></address>
-      <section class="bio-body"><p>{{bio}}</p></section>
+      <section class="bio-body"><p id="bio-opac">{{bio}}</p></section>
     </div>
   </script>
 </head>
+
 <body>
   <div id="title-area">
     <h1><img src="/images/clapperboard.png" class="titleImage header-nav">
@@ -47,7 +49,9 @@
     </div>
     <button type="button" name="button" class="mapbutton"><a href="/map">Click to view map and enter address</a></button>
   </div>
-  <div id="map"></div>
+
+   <div id="map"></div>
+   
   <div id="about"></div>
   <p id="copyright">&copy; Dinner and a Movie 2017</p>
 

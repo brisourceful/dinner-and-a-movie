@@ -179,6 +179,10 @@ function initAutocomplete() {
     map.fitBounds(bounds);
   });
 }
+
+
+
+
 function deleteMarkers() {
   markers.forEach(function(marker){
     marker.setMap(null);

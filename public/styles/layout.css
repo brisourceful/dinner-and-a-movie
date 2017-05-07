@@ -24,10 +24,12 @@
 /*------------------------------*/
 .bio-about{
   float: left;
-  clear: both;
+  clear: both;*/
   display: inline-block;
+  display:block;
+  overflow:auto;
   padding-top: 10px;
-  width: 100%;
+
 }
 .bio-about img{
   width: 120px;
@@ -43,7 +45,6 @@
 /*------------------------------*/
 #copyright{
   float: left;
-  margin-top: 20vw;
 }
 
 
@@ -69,6 +70,7 @@
   /*------------------------------*/
   .bio-about{
     padding-top: 15px;
+
   }
   .bio-about img{
     width: 200px;

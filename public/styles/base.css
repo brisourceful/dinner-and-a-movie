@@ -3,12 +3,14 @@
   /*font-family: 'Open Sans Condensed', sans-serif;*/
   /*font-family: 'Rancho', cursive;*/
 }
-body {
-  background-image: url('/images/popcorn-1085072.jpg');
-  background-size: cover;
-  height: 100%;
-  margin-top: 0;
+html {
+  background: url('/images/popcorn-1085072.jpg') no-repeat center center fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
 }
+
 #h2-container {
   /*background-color: rgba(255, 255, 255);*/
   margin-top: 12vw;
@@ -59,6 +61,7 @@ h2.home {
 }
 .bio-body {
   font-size: 1.4em;
+
 }
 /*------------------------------*/
 #copyright{
