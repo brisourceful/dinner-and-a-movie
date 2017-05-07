@@ -6,7 +6,8 @@
     $('#map-icon').hide();
     $('#about-icon').show();
     $('#home-icon').show();
-    $('#map').fadeIn('slow');
+    $('#map').show();
+
   }
   module.mapController = mapController;
 })(window);

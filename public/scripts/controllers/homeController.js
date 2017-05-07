@@ -4,10 +4,10 @@
   homeController.showHome = function(){
     $('#about').hide();
     $('#home-icon').hide();
-    $('#map').hide();
     $('#home').fadeIn();
     $('#about-icon').show();
     $('#map-icon').show();
+    $('#map').hide();
 
   }
   module.homeController = homeController;

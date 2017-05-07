@@ -8,9 +8,7 @@
   font-weight: normal;
   font-style: normal;
 }
-.bio-image:hover {
-  content: url('/images/brie-bio-gif.gif');
-}
+
 .mapbutton {
   height: 5vw;
   width: auto;
@@ -69,6 +67,7 @@ button {
 }
 .icon-github:before {
   content: "\eab0";
+  size: 20px;
 }
 .icon-location2:before {
   content: "\e948";
