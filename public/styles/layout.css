@@ -54,6 +54,10 @@
     padding-bottom: .2em;
   }
 
+  .hamburger-button{
+    font-size: 0.5em;
+  }
+
   /*------------------------------*/
   .icon-list2{
     padding-bottom: 40px;
@@ -85,6 +89,10 @@
     padding-bottom: .3em;
   }
 
+  .hamburger-button{
+    font-size: 0.5em;
+  }
+
   /*------------------------------*/
   .icon-list2{
     padding-bottom: 40px;
@@ -114,6 +122,10 @@
   #title-area{
     padding-top: .4em;
     padding-bottom: .4em;
+  }
+
+  .hamburger-button{
+    font-size: 0.5em;
   }
 
   /*------------------------------*/

@@ -9,7 +9,7 @@ let infoFoodArray = [];
 function initAutocomplete() {
   let map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 47.6205, lng: -122.3493},
-    zoom: 12,
+    zoom: 13,
     mapTypeId: 'roadmap'
   });
 
@@ -55,7 +55,7 @@ function initAutocomplete() {
       }
     });
 
-    let imageFood = 'https://lh3.googleusercontent.com/bI7zYcPlfE9HGLEbQflx6YxrpT84hNZPBjsGdKl2KdQOilwwyXDlRjUml89jwTjfqnq2co8Ao2Jz4YfcnI4OSp5XbEW3yAzwRfqEtZRfvR-SqyTKpYeFcNoeWYQ9u7fTtKqt2mj8Lue0PFUREfVr6V4p_1GY2j5Pt2kccnWGpU-X0V6HS5ZBwz5A5Q_k2MGOB1DV216k2Qtuh00z0lGAJtnBOpmS17wkjDbNfkpJoAVhZondAqxvbGmZpYG2NlKvZw0dO1bImpLoXafhHxne19qjqMOpjaEMT6atJpDwfkEvJ7Zd_WyObn7V8KAYmNzZfzfPS6UPXwFgts61WXErZc1PhzpCCZrNskEuzLbQ0BC5aNr3GV3o40OUU9wp26Cvu_ZKqaxM9fRMDNGfj_j90rXzc5tNyLXX3E5R0V3PeR-Js-O7jKlcm_41NTgFKqnbfutqfa56HkpN1yT68K3blb8juw87JZdwTNMAqw1HkfSnMOxwmrjdgCxNuQCog00waqqCxQlzkSMkjEajdKXO0ohcSZRMoUssITn-0gYzQAUmQVmJAsqlbILyxYIHn4tXIEpsqFqydXqNlEM_gS0umGmejGqJJH-Gzd4WzyYNCn9tHZWSkNTtLDF9QNgYmFCnGOEVK98kZ-CUZ_kdtugT1BX2ISvq0zBsJWfmFAp_fA=w33-h42-no';
+    let imageFood = 'https://lh3.google.com/u/0/d/0B-b8VroLfDYrWDZrcWdoOVF5ZWc=w2560-h1086-iv1';
     function createMarkerFood(place){
       let marker = new google.maps.Marker({
         position: place.geometry.location,
@@ -88,7 +88,7 @@ function initAutocomplete() {
       });
     }
 
-    let image = 'https://lh3.googleusercontent.com/mZx_oJ0k4ZQ728nFwM8zTR1IU_Wo8vw5DEeFY80_JMbmkG5t8cZojN42TtH9J-K7pBFjNY9Onkjp9qNvg2P1l2EGzosnKpDK_f-rdM10C3ySYaTraj8NDw6fCtXp_b9TWVhEuo51sS5RG3KlIoG0XtwmJseVQm_quipXpt4lbsk1Z59zeZ7cfElFoTwwdz4xoWUttmHKdnoPRTJne3OR0g9V_-YLQV_qt5kXRtaY-kl26ZolNkaH0HAdQNm_RmLXaCeFqDhWSqL_8MtxfF-q48y_LhIPewIqcEJKJHWH6I3jmVFBjK1WR1-FrRubYUbBLHykodplEJ9vQ6Gh6aGUg4dIFi23NBnEHZ7Noetty-NkLJtaP4K76M8EZkzP9AaVlHuUqGqn_hE_61hRgHgNlVERU6O-jYFaSDDDD-t3CPt6gSbcXVjp6O9CHqsLQSiNWLyxziaJBifnLl9wpMaBTi75eGCl1eBPMQRU_mS4gCxCoV5EUHwa2q5sOuy0zYczINX6kkkXycx6cnDWDss5a4VNyfLt7hIBN3CJSIvFAhGNy-wg27U1id8dH7sh05gMP5tGTBbtig_iw6lPcWMdH1tp14_XkbuHJbUHGLOa1CcJGnQtqGNm=s36-no';
+    let image = 'https://lh3.google.com/u/0/d/0B-b8VroLfDYrZWVBZlhLX2JBelE=w2560-h1086-iv1';
     function createMarkerMovie(place){
       let marker = new google.maps.Marker({
         position: place.geometry.location,

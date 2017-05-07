@@ -34,7 +34,6 @@ a {
   width: auto;
 }
 .hamburger-button {
-  font-size: 3vw;
   float: right;
   height: 50px;
   line-height: 3px;
@@ -64,15 +63,7 @@ button {
 .icon-list2:before {
   content: "\e9bb";
 }
-.icon-home:before {
-  content: "\e900";
-}
+
 .icon-github:before {
   content: "\eab0";
-}
-.icon-location2:before {
-  content: "\e948";
-}
-.icon-info:before {
-  content: "\ea0c";
 }
